@@ -12,6 +12,8 @@ import argparse
 
 @hydra.main(config_name= "training_conf.yaml" ,config_path="../../conf")
 def main(cfg):
+    """Training loop
+    """
     os.chdir(hydra.utils.get_original_cwd())
     print("Working directory : {}".format(os.getcwd()))
     print("Training day and night")    
