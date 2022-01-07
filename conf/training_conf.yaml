@@ -1,0 +1,5 @@
+epochs : 10
+print_every : 40
+train_data: 'data/processed/train.pt'
+lr : 0.01
+momentum : 0.9
