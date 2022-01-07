@@ -12,3 +12,4 @@ dvc
 pytorch
 torchvision
 kornia
+hydra-core
