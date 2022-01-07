@@ -86,6 +86,8 @@ def main(cfg):
 
     
 def validation(model, testloader, criterion):
+    """Model validation
+    """
     accuracy = 0
     test_loss = 0
     for images, labels in testloader:
