@@ -7,15 +7,25 @@ import glob
 from pathlib import Path
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from os import listdir
+from os.path import isfile, join
+import os
+from torch.utils.data import TensorDataset
+import torch
+from PIL import Image
+import numpy as np
+from torch.utils.data import DataLoader
+from torchvision import transforms
+from torch.utils.data import Dataset, TensorDataset
+import matplotlib.pyplot as plt
 
 
 @click.command()
 @click.argument("input_filepath", type=click.Path(exists=True))
 @click.argument("output_filepath", type=click.Path())
 def main(input_filepath: str, output_filepath: str):
-    """Runs data processing scripts to turn raw data from (input_filepath : ../raw) 
+    """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
     into cleaned data ready to be analyzed (saved in ../processed).
-
     """
     logger = logging.getLogger(__name__)
     logger.info("making final data set from raw data")
@@ -38,26 +48,102 @@ def main(input_filepath: str, output_filepath: str):
     # Label Dictionary
     print(int_classes)
 
-    # Create data
-    image_data = pd.DataFrame({"Path": non_segmented_images, "labels": lables})
-   
-   
+    train, test, train_labels, test_labels = train_test_split(
+        non_segmented_images, lables, test_size=0.2, shuffle=True
+    )
 
-    train,test, train_labels, test_labels = train_test_split(image_data.Path, image_data.labels, test_size=0.2, shuffle=True)
-    
-    # Create data
-    train_data = pd.DataFrame({"Path": train, "labels": train_labels})
-    test_data = pd.DataFrame({"Path": test, "labels": test_labels})
+    train, val, train_labels, val_labels = train_test_split(
+        train, train_labels, test_size=0.2, shuffle=True
+    )
 
+    ##########################
+    ### FISH DATASET
+    ##########################
+
+    train_transform = transforms.Compose(
+        [
+            transforms.Resize((64, 64)),
+            transforms.ToTensor(),
+            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+        ]
+    )
+
+    test_transforms = transforms.Compose(
+        [
+            transforms.Resize((64, 64)),
+            transforms.ToTensor(),
+            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+        ]
+    )
+
+    # Create Data Loaders
+    train_loader, val_loader, test_loader = get_loaders(
+        train,
+        train_labels,
+        val,
+        val_labels,
+        test,
+        test_labels,
+        4,
+        1,
+        train_transform,
+        test_transforms,
+    )
+
+    print(train_loader)
     # Save data
-    train_data.to_pickle(f"{output_filepath}train.pkl")
-    test_data.to_pickle(f"{output_filepath}test.pkl")
+    torch.save(train, f"{output_filepath}train.pt")
+    torch.save(test, f"{output_filepath}test.pt")
+    torch.save(test, f"{output_filepath}val.pt")
 
 
-    # train,val, train_labels, val_labels = train_test_split(train, train_labels, test_size=0.2, shuffle=True)
+class FishDataset(Dataset):
+    def __init__(self, images, labels, transform=None):
+        self.images = images
+        self.labels = labels
+        self.transform = transform
 
-    
+    def __len__(self):
+        return len(self.labels)
 
+    def __getitem__(self, idx):
+        img = Image.open(self.images.iloc[idx])
+        if self.transform:
+            img = self.transform(img)
+            label = self.labels.iloc[idx]
+        return img, label
+
+
+def get_loaders(
+    train,
+    train_labels,
+    val,
+    val_labels,
+    test,
+    test_labels,
+    batch_size,
+    num_workers,
+    train_transform,
+    test_transform,
+):
+    """
+    Returns the Train, Validation and Test DataLoaders.
+    """
+
+    train_ds = FishDataset(images=train, labels=train_labels, transform=train_transform)
+    val_ds = FishDataset(images=val, labels=val_labels, transform=test_transform)
+    test_ds = FishDataset(images=test, labels=test_labels, transform=test_transform)
+
+    train_loader = DataLoader(
+        train_ds, batch_size=batch_size, num_workers=num_workers, shuffle=True
+    )
+    val_loader = DataLoader(
+        val_ds, batch_size=batch_size, num_workers=num_workers, shuffle=False
+    )
+    test_loader = DataLoader(
+        test_ds, batch_size=batch_size, num_workers=num_workers, shuffle=False
+    )
+    return train_loader, val_loader, test_loader
 
 
 if __name__ == "__main__":
