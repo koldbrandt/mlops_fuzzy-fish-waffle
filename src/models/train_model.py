@@ -12,6 +12,8 @@ import argparse
 
 @hydra.main(config_name= "training_conf.yaml" ,config_path="../../conf")
 def main(cfg):
+    """Training loop
+    """
     os.chdir(hydra.utils.get_original_cwd())
     print("Working directory : {}".format(os.getcwd()))
     print("Training day and night")    
@@ -86,6 +88,8 @@ def main(cfg):
 
     
 def validation(model, testloader, criterion):
+    """Model validation
+    """
     accuracy = 0
     test_loss = 0
     for images, labels in testloader:

@@ -13,3 +13,4 @@ pytorch
 torchvision
 kornia
 hydra-core
+matplotlib
