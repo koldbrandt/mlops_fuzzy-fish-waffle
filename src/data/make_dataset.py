@@ -5,17 +5,11 @@ from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 from pathlib import Path
 from sklearn.model_selection import train_test_split
-from os import listdir
-from os.path import isfile, join
-import os
-from torch.utils.data import TensorDataset
 import torch
 from PIL import Image
-import numpy as np
 from torch.utils.data import DataLoader
 from torchvision import transforms
 from torch.utils.data import Dataset, TensorDataset
-import matplotlib.pyplot as plt
 
 
 @click.command()
@@ -90,12 +84,12 @@ def main(input_filepath: str, output_filepath: str):
 
     print(train_loader)
     # Save data
-    torch.save(train, f"{output_filepath}train.pt")
-    torch.save(test, f"{output_filepath}test.pt")
-    torch.save(test, f"{output_filepath}val.pt")
+    torch.save(train_loader, f"{output_filepath}train.pt")
+    torch.save(val_loader, f"{output_filepath}test.pt")
+    torch.save(test_loader, f"{output_filepath}val.pt")
 
 
-class FishDataset(Dataset):
+class FishDataset(TensorDataset):
     def __init__(self, images, labels, transform=None):
         self.images = images
         self.labels = labels
@@ -105,10 +99,10 @@ class FishDataset(Dataset):
         return len(self.labels)
 
     def __getitem__(self, idx):
-        img = Image.open(self.images.iloc[idx])
+        img = Image.open(self.images[idx])
         if self.transform:
             img = self.transform(img)
-            label = self.labels.iloc[idx]
+            label = self.labels[idx]
         return img, label
 
 

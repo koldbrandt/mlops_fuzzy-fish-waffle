@@ -1,4 +1,3 @@
-import pathlib
 from model import Network
 import torch
 from torch import nn, optim
@@ -6,8 +5,7 @@ import matplotlib.pyplot as plt
 import hydra
 import os
 #import wandb
-import argparse
-
+from src.data.make_dataset import FishDataset
 
 
 @hydra.main(config_name= "training_conf.yaml" ,config_path="../../conf")
@@ -93,8 +91,6 @@ def validation(model, testloader, criterion):
     accuracy = 0
     test_loss = 0
     for images, labels in testloader:
-
-        print(images.size())
         output = model.forward(images)
         test_loss += criterion(output, labels).item()
 
