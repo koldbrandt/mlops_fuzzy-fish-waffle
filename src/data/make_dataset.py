@@ -3,9 +3,7 @@ import click
 import logging
 from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
-import glob
 from pathlib import Path
-import pandas as pd
 from sklearn.model_selection import train_test_split
 from os import listdir
 from os.path import isfile, join

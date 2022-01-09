@@ -2,7 +2,7 @@ import  torch
 import  torch.nn as nn
 
 # Architecture
-class ConvNet(torch.nn.Module):
+class Network(torch.nn.Module):
     def __init__(self, num_classes):
         super().__init__()
         self.num_classes = num_classes

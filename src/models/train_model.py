@@ -5,7 +5,7 @@ from torch import nn, optim
 import matplotlib.pyplot as plt
 import hydra
 import os
-import wandb
+#import wandb
 import argparse
 
 
@@ -17,11 +17,11 @@ def main(cfg):
     os.chdir(hydra.utils.get_original_cwd())
     print("Working directory : {}".format(os.getcwd()))
     print("Training day and night")    
-    model = Network()   
+    model = Network(cfg.num_classes)   
 
 
     # Magic
-    wandb.watch(model, log_freq=cfg.print_every)
+    # wandb.watch(model, log_freq=cfg.print_every)
 
     model.train()
     trainloader = torch.load(cfg.train_data)
@@ -54,7 +54,7 @@ def main(cfg):
             running_loss += loss.item()
 
             if steps % print_every == 0:
-                wandb.log({"loss": loss})
+                # wandb.log({"loss": loss})
 
                 # Model in inference mode, dropout is off
                 model.eval()
@@ -111,7 +111,4 @@ def validation(model, testloader, criterion):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    args = parser.parse_args()
-    wandb.init(config= args)
-    main(wandb.Config)
+    main()
