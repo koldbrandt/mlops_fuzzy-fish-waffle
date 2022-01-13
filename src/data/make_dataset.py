@@ -1,37 +1,50 @@
 # -*- coding: utf-8 -*-
-import click
 import logging
+import os
+import sys
+from os import path
 from pathlib import Path
+
+import hydra
+import pytest
+import torch
 from dotenv import find_dotenv, load_dotenv
-from pathlib import Path
+from omegaconf import OmegaConf
+import kornia
 from PIL import Image
+from sklearn.model_selection import train_test_split
+from torch.utils.data import DataLoader, Dataset, TensorDataset
 from torchvision import transforms
 
-from kornia.augmentation import ImageSequential
-import kornia
-import  matplotlib.pyplot as plt
-import pandas as pd
-import os 
-import hydra
+# from tests.test_data import test_traindata_length
+# @click.command()
+# @click.argument("input_filepath", type=click.Path(exists=True))
+# @click.argument("output_filepath", type=click.Path())
 
 # @click.command()
 # @click.argument('input_filepath', type=click.Path(exists=True))
 # @click.argument('output_filepath', type=click.Path())
 @hydra.main(config_name= "makeDataset_conf.yaml" ,config_path="../../conf")
 def main(cfg):
+    # hydra.initialize(config_path="../../conf")
+    # cfg= compose(config_name="makeDataset_conf", return_hydra_config=True, overrides=["hydra.runtime.cwd=."])
     """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
     into cleaned data ready to be analyzed (saved in ../processed).
     """
     # logger = logging.getLogger(__name__)
     # logger.info("making final data set from raw data")
-    os.chdir(hydra.utils.get_original_cwd())
-    print("Working directory : {}".format(os.getcwd()))
-    # test_traindata_length()
+    # os.chdir(hydra.utils.get_original_cwd())
+    # print("Working directory : {}".format(os.getcwd()))
+    
 
-    input_filepath = cfg.input_filepath
-    output_filepath = cfg.output_filepath
+    input_filepath = f"{cfg.hyperparameters.input_filepath}"
+    output_filepath = f"{cfg.hyperparameters.output_filepath}"
 
     input_filepath = Path(input_filepath)
+
+    # Check if path exists else raise error
+    if not path.exists(input_filepath):
+        raise ValueError("Input path does not exist")
 
     image_path = list(input_filepath.glob("**/*.png")) + list(input_filepath.glob("**/*.jpg"))
     # All path to images
@@ -90,6 +103,79 @@ def main(cfg):
                 iter_num += 1 
 
 
+    # Create Data Loaders
+    train_loader, val_loader, test_loader = get_loaders(
+        train,
+        train_labels,
+        val,
+        val_labels,
+        test,
+        test_labels,
+        cfg.hyperparameters.TRAIN_BATCHSIZE,
+        1,
+        train_transform,
+        test_transforms,
+    )
+
+    print(train_loader)
+    # Save data
+    torch.save(train_loader, f"{output_filepath}train.pt")
+    torch.save(val_loader, f"{output_filepath}test.pt")
+    torch.save(test_loader, f"{output_filepath}val.pt")
+
+class FishDataset(TensorDataset):
+    def __init__(self, images, labels, transform=None):
+        self.images = images
+        self.labels = labels
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.labels)
+
+    def __getitem__(self, idx: int):
+        img = Image.open(self.images[idx])
+        if self.transform:
+            img = self.transform(img)
+            label = self.labels[idx]
+        return img, label
+
+
+def get_loaders(
+    train,
+    train_labels,
+    val,
+    val_labels,
+    test,
+    test_labels,
+    batch_size,
+    num_workers,
+    train_transform,
+    test_transform,
+):
+    """
+    Returns the Train, Validation and Test DataLoaders.
+    """
+
+    train_ds = FishDataset(images=train, labels=train_labels, transform=train_transform)
+    val_ds = FishDataset(images=val, labels=val_labels, transform=test_transform)
+    test_ds = FishDataset(images=test, labels=test_labels, transform=test_transform)
+
+    train_loader = DataLoader(
+        train_ds, batch_size=batch_size, num_workers=num_workers, shuffle=True
+    )
+    val_loader = DataLoader(
+        val_ds, batch_size=batch_size, num_workers=num_workers, shuffle=False
+    )
+    test_loader = DataLoader(
+        test_ds, batch_size=batch_size, num_workers=num_workers, shuffle=False
+    )
+    return train_loader, val_loader, test_loader
+
+
+
+   
+
+            
 if __name__ == "__main__":
     log_fmt = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     logging.basicConfig(level=logging.INFO, format=log_fmt)
@@ -103,4 +189,6 @@ if __name__ == "__main__":
 
     # pytest.main(["-qq"], plugins=[FishDataset()])
     main()
+
+    
 

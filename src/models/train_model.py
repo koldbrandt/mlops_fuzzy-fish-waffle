@@ -1,11 +1,14 @@
-from model import Network
+import os
+
+import hydra
+import matplotlib.pyplot as plt
 import model as md
 import torch
+from model import Network
 from torch import nn, optim
-import matplotlib.pyplot as plt
-import hydra
-import os
+
 from src.data.make_dataset import FishDataset
+
 #import wandb
 
 

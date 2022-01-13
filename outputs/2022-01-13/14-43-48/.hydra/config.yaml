@@ -1,0 +1,4 @@
+hyperparameters:
+  TRAIN_BATCHSIZE: 4
+  input_filepath: data/raw/
+  output_filepath: data/processed/

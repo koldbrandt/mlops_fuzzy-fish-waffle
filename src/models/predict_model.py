@@ -1,11 +1,13 @@
-import pathlib
-import click
 import logging
-from dotenv import find_dotenv, load_dotenv
-import torch
-from torch import nn
-from model import Network
+import pathlib
+
+import click
 import model as md
+import torch
+from dotenv import find_dotenv, load_dotenv
+from model import Network
+from torch import nn
+
 from src.data.make_dataset import FishDataset
 
 
