@@ -24,8 +24,7 @@ def main(input_filepath: str, output_filepath: str):
 
     input_filepath = Path(input_filepath)
 
-    image_path = list(input_filepath.glob("**/*.png"))
-
+    image_path = list(input_filepath.glob("**/*.png")) + list(input_filepath.glob("**/*.jpg"))
     # All path to images
     non_segmented_images = [img for img in image_path if "GT" not in str(img)]
     labels_non_segment = [img.parts[-2] for img in non_segmented_images]
