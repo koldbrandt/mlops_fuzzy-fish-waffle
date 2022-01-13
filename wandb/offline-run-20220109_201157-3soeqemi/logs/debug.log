@@ -1,0 +1,30 @@
+2022-01-09 20:11:57,117 INFO    MainThread:2116 [wandb_setup.py:_flush():71] setting env: {}
+2022-01-09 20:11:57,118 INFO    MainThread:2116 [wandb_setup.py:_flush():71] setting login settings: {}
+2022-01-09 20:11:57,118 INFO    MainThread:2116 [wandb_setup.py:_flush():71] setting login settings: {'mode': 'offline'}
+2022-01-09 20:11:57,119 INFO    MainThread:2116 [wandb_init.py:_log_setup():371] Logging user logs to C:\Users\Durita Kvilt\OneDrive\Menneske orienteret kunstig intelligens\Machine learning operations\mlops_fuzzy-fish-waffle\wandb\offline-run-20220109_201157-3soeqemi\logs\debug.log
+2022-01-09 20:11:57,120 INFO    MainThread:2116 [wandb_init.py:_log_setup():372] Logging internal logs to C:\Users\Durita Kvilt\OneDrive\Menneske orienteret kunstig intelligens\Machine learning operations\mlops_fuzzy-fish-waffle\wandb\offline-run-20220109_201157-3soeqemi\logs\debug-internal.log
+2022-01-09 20:11:57,121 INFO    MainThread:2116 [wandb_init.py:init():404] calling init triggers
+2022-01-09 20:11:57,122 INFO    MainThread:2116 [wandb_init.py:init():409] wandb.init called with sweep_config: {}
+config: {}
+2022-01-09 20:11:57,122 INFO    MainThread:2116 [wandb_init.py:init():460] starting backend
+2022-01-09 20:11:57,122 INFO    MainThread:2116 [backend.py:_multiprocessing_setup():99] multiprocessing start_methods=spawn, using: spawn
+2022-01-09 20:11:57,147 INFO    MainThread:2116 [backend.py:ensure_launched():216] starting backend process...
+2022-01-09 20:11:57,379 INFO    MainThread:2116 [backend.py:ensure_launched():221] started backend process with pid: 14332
+2022-01-09 20:11:57,381 INFO    MainThread:2116 [wandb_init.py:init():469] backend started and connected
+2022-01-09 20:11:57,386 INFO    MainThread:2116 [wandb_init.py:init():533] updated telemetry
+2022-01-09 20:11:57,686 INFO    MainThread:2116 [wandb_init.py:init():606] starting run threads in backend
+2022-01-09 20:12:01,965 INFO    MainThread:2116 [wandb_run.py:_console_start():1810] atexit reg
+2022-01-09 20:12:01,967 INFO    MainThread:2116 [wandb_run.py:_redirect():1684] redirect: SettingsConsole.WRAP
+2022-01-09 20:12:01,968 INFO    MainThread:2116 [wandb_run.py:_redirect():1721] Wrapping output streams.
+2022-01-09 20:12:01,971 INFO    MainThread:2116 [wandb_run.py:_redirect():1745] Redirects installed.
+2022-01-09 20:12:01,971 INFO    MainThread:2116 [wandb_init.py:init():633] run started, returning control to user process
+2022-01-09 20:12:01,978 INFO    MainThread:2116 [wandb_run.py:_atexit_cleanup():1780] got exitcode: 1
+2022-01-09 20:12:01,984 INFO    MainThread:2116 [wandb_run.py:_restore():1752] restore
+2022-01-09 20:12:02,508 INFO    MainThread:2116 [wandb_run.py:_wait_for_finish():1912] got exit ret: 
+2022-01-09 20:12:02,632 INFO    MainThread:2116 [wandb_run.py:_wait_for_finish():1912] got exit ret: 
+2022-01-09 20:12:02,737 INFO    MainThread:2116 [wandb_run.py:_wait_for_finish():1912] got exit ret: done: true
+exit_result {
+}
+local_info {
+}
+
