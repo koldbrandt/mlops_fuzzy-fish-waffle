@@ -12,8 +12,8 @@ The model will have 3 convolutional layers with batchnormalization and relu will
 - [x] Make sure that all team members have write access to the github repository
 - [x] Create a dedicated environment for you project to keep track of your packages (using conda)
 - [x] Create the initial file structure using cookiecutter
-- [ ] Fill out the `make_dataset.py` file such that it downloads whatever data you need and
-- [ ] Add a model file and a training script and get that running
+- [x] Fill out the `make_dataset.py` file such that it downloads whatever data you need and
+- [x] Add a model file and a training script and get that running
 - [x] Remember to fill out the `requirements.txt` file with whatever dependencies that you are using
 - [ ] Remember to comply with good coding practices (`pep8`) while doing the project
 - [ ] Do a bit of code typing and remember to document essential parts of your code

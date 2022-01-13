@@ -1,0 +1,6 @@
+epochs: 10
+train_data: data/processed/train.pt
+test_data: data/processed/test.pt
+TRAIN_BATCHSIZE: 4
+input_filepath: r'data/raw/'
+output_filepath: data/processed/

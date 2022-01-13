@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Durita Kvilt\OneDrive\Menneske orienteret kunstig intelligens\Machine learning operations\mlops_fuzzy-fish-waffle\src\models\train_model.py", line 117, in <module>
+    main(wandb.Config)
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\hydra\main.py", line 43, in decorated_main
+    return task_function(cfg_passthrough)
+  File "C:\Users\Durita Kvilt\OneDrive\Menneske orienteret kunstig intelligens\Machine learning operations\mlops_fuzzy-fish-waffle\src\models\train_model.py", line 17, in main
+    os.chdir(hydra.utils.get_original_cwd())
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\hydra\utils.py", line 52, in get_original_cwd
+    raise ValueError(
+ValueError: get_original_cwd() must only be used after HydraConfig is initialized
