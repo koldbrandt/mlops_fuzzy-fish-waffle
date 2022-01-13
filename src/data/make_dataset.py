@@ -12,7 +12,12 @@ import kornia
 import  matplotlib.pyplot as plt
 import pandas as pd
 import os 
+import hydra
 
+# @click.command()
+# @click.argument('input_filepath', type=click.Path(exists=True))
+# @click.argument('output_filepath', type=click.Path())
+@hydra.main(config_name= "makeDataset_conf.yaml" ,config_path="../../conf")
 def main(cfg):
     """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
     into cleaned data ready to be analyzed (saved in ../processed).
@@ -74,11 +79,11 @@ def main(cfg):
         dir_exist = os.path.exists(f'{output_filepath}{class_name}')
         if not dir_exist:
             os.mkdir(f'{output_filepath}{class_name}')
-        for im in image_data[image_data.labels == label].Path[0:5]:
+        for im in image_data[image_data.labels == label].Path:
             print(im)
             img = Image.open(im)
             img_tensor = convert_tensor(img)
-            for i in range(3):
+            for i in range(10):
                 out = aug_list(img_tensor)
                 image = out[0].numpy().transpose((1,2,0))
                 plt.imsave(f'{output_filepath}{class_name}\im{iter_num}.png', image)
