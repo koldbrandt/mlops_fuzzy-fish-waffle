@@ -10,17 +10,28 @@ from PIL import Image
 from torch.utils.data import DataLoader
 from torchvision import transforms
 from torch.utils.data import Dataset, TensorDataset
+import hydra
+import os
+import sys
+# from tests.test_data import test_traindata_length
+# @click.command()
+# @click.argument("input_filepath", type=click.Path(exists=True))
+# @click.argument("output_filepath", type=click.Path())
 
+@hydra.main(config_name= "makeDataset_conf.yaml" ,config_path="../../conf")
 
-@click.command()
-@click.argument("input_filepath", type=click.Path(exists=True))
-@click.argument("output_filepath", type=click.Path())
-def main(input_filepath: str, output_filepath: str):
+def main(cfg):
     """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
     into cleaned data ready to be analyzed (saved in ../processed).
     """
-    logger = logging.getLogger(__name__)
-    logger.info("making final data set from raw data")
+    # logger = logging.getLogger(__name__)
+    # logger.info("making final data set from raw data")
+    os.chdir(hydra.utils.get_original_cwd())
+    print("Working directory : {}".format(os.getcwd()))
+    # test_traindata_length()
+
+    input_filepath = cfg.input_filepath
+    output_filepath = cfg.output_filepath
 
     input_filepath = Path(input_filepath)
 
@@ -75,7 +86,7 @@ def main(input_filepath: str, output_filepath: str):
         val_labels,
         test,
         test_labels,
-        4,
+        cfg.TRAIN_BATCHSIZE,
         1,
         train_transform,
         test_transforms,
@@ -87,7 +98,6 @@ def main(input_filepath: str, output_filepath: str):
     torch.save(val_loader, f"{output_filepath}test.pt")
     torch.save(test_loader, f"{output_filepath}val.pt")
 
-
 class FishDataset(TensorDataset):
     def __init__(self, images, labels, transform=None):
         self.images = images
@@ -97,7 +107,7 @@ class FishDataset(TensorDataset):
     def __len__(self):
         return len(self.labels)
 
-    def __getitem__(self, idx):
+    def __getitem__(self, idx: int):
         img = Image.open(self.images[idx])
         if self.transform:
             img = self.transform(img)
@@ -148,4 +158,5 @@ if __name__ == "__main__":
     # load up the .env entries as environment variables
     load_dotenv(find_dotenv())
 
+    # pytest.main(["-qq"], plugins=[FishDataset()])
     main()
