@@ -78,13 +78,13 @@ def main(cfg):
     plt.plot(timestamp, losses)
     plt.xlabel("step")
     plt.ylabel("loss")
-    plt.savefig("reports/figures/training.png")
+    plt.savefig(hydra.utils.get_original_cwd() +"/reports/figures/training.png")
 
     # plt.show()
     checkpoint = {
         "state_dict": model.state_dict(),
     }
-    torch.save(checkpoint, "models/checkpoint.pth")
+    torch.save(checkpoint, hydra.utils.get_original_cwd() + "/models/checkpoint.pth")
 
 
 if __name__ == "__main__":
