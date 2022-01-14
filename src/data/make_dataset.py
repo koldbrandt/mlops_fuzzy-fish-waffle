@@ -23,24 +23,10 @@ from torchvision import transforms
 
 
 # from tests.test_data import test_traindata_length
-
-
-@hydra.main(config_name="makeDataset_conf.yaml", config_path="../../conf")
-def main(cfg):
-    """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
-    into cleaned data ready to be analyzed (saved in ../processed).
+def getImagesAndLabels(input_filepath: Path):
     """
-
-    input_filepath = f"{cfg.hyperparameters.input_filepath}"
-    output_filepath = f"{cfg.hyperparameters.output_filepath}"
-    input_filepath = Path(input_filepath)
-
-    # Check if path exists else raise error
-    if not path.exists(input_filepath):
-        raise ValueError("Input path does not exist")
-    if not path.exists(output_filepath):
-        raise ValueError("Output path does not exist")
-
+    Takes a path as input and returns all images(PNG and JPG) in path 
+    """
     image_path = list(input_filepath.glob("**/*.png")) + list(
         input_filepath.glob("**/*.jpg")
     )
@@ -58,8 +44,41 @@ def main(cfg):
     # Label Dictionary
     print(int_classes)
 
+    uniqlabels = list(set(lables))
+
+    return non_segmented_images, lables, uniqlabels, int_classes
+
+def get_params(cfg):
+    """
+    Returns all parameters in config file
+    """
+    input_filepath = f"{cfg.hyperparameters.input_filepath}"
+    output_filepath = f"{cfg.hyperparameters.output_filepath}"
+    input_filepath = Path(input_filepath)
+
+    return input_filepath, output_filepath
+
+
+
+@hydra.main(config_name="makeDataset_conf.yaml", config_path="../../conf")
+def main(cfg):
+    """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
+    into cleaned data ready to be analyzed (saved in ../processed).
+    """
+
+    input_filepath, output_filepath = get_params(cfg)
+
+    # Check if path exists else raise error
+    if not path.exists(input_filepath):
+        raise ValueError("Input path does not exist")
+    if not path.exists(output_filepath):
+        raise ValueError("Output path does not exist")
+
+    
+    non_segmented_images, labels, uniqLabels, int_classes = getImagesAndLabels(input_filepath)
+
     # Saving in a DataFrame
-    image_data = pd.DataFrame({"Path": non_segmented_images, "labels": lables})
+    image_data = pd.DataFrame({"Path": non_segmented_images, "labels": labels})
     ##########################
     ### FISH DATASET
     ##########################
@@ -80,7 +99,8 @@ def main(cfg):
         #     random_apply=10
     )
 
-    for label in list(set(lables)):
+
+    for label in uniqLabels:
         class_name = list(int_classes.keys())[list(int_classes.values()).index(label)]
         print(class_name)
         iter_num = 0

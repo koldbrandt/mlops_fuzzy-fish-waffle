@@ -22,7 +22,6 @@ def main(cfg):
     into dataloaders that will get returned. 
     """
     input_filepath = f"{cfg.hyperparameters.input_filepath}"
-    output_filepath = f"{cfg.hyperparameters.output_filepath}"
     input_filepath = Path(input_filepath)
 
     # Check if path exists else raise error
