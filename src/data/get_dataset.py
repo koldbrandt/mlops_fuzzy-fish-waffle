@@ -13,13 +13,14 @@ from torch.utils.data import Dataset, TensorDataset
 import hydra
 import os
 import sys
+
 # from tests.test_data import test_traindata_length
 # @click.command()
 # @click.argument("input_filepath", type=click.Path(exists=True))
 # @click.argument("output_filepath", type=click.Path())
 
-@hydra.main(config_name= "makeDataset_conf.yaml" ,config_path="../../conf")
 
+@hydra.main(config_name="makeDataset_conf.yaml", config_path="../../conf")
 def main(cfg):
     """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
     into cleaned data ready to be analyzed (saved in ../processed).
@@ -35,7 +36,9 @@ def main(cfg):
 
     input_filepath = Path(input_filepath)
 
-    image_path = list(input_filepath.glob("**/*.png")) + list(input_filepath.glob("**/*.jpg"))
+    image_path = list(input_filepath.glob("**/*.png")) + list(
+        input_filepath.glob("**/*.jpg")
+    )
     # All path to images
     non_segmented_images = [img for img in image_path if "GT" not in str(img)]
     labels_non_segment = [img.parts[-2] for img in non_segmented_images]
@@ -97,6 +100,7 @@ def main(cfg):
     torch.save(train_loader, f"{output_filepath}train.pt")
     torch.save(val_loader, f"{output_filepath}test.pt")
     torch.save(test_loader, f"{output_filepath}val.pt")
+
 
 class FishDataset(TensorDataset):
     def __init__(self, images, labels, transform=None):

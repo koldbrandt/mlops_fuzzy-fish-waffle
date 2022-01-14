@@ -25,7 +25,7 @@ from torchvision import transforms
 # @click.command()
 # @click.argument('input_filepath', type=click.Path(exists=True))
 # @click.argument('output_filepath', type=click.Path())
-@hydra.main(config_name= "makeDataset_conf.yaml" ,config_path="../../conf")
+@hydra.main(config_name="makeDataset_conf.yaml", config_path="../../conf")
 def main(cfg):
     # hydra.initialize(config_path="../../conf")
     # cfg= compose(config_name="makeDataset_conf", return_hydra_config=True, overrides=["hydra.runtime.cwd=."])
@@ -36,7 +36,6 @@ def main(cfg):
     # logger.info("making final data set from raw data")
     # os.chdir(hydra.utils.get_original_cwd())
     # print("Working directory : {}".format(os.getcwd()))
-    
 
     input_filepath = f"{cfg.hyperparameters.input_filepath}"
     output_filepath = f"{cfg.hyperparameters.output_filepath}"
@@ -46,8 +45,12 @@ def main(cfg):
     # Check if path exists else raise error
     if not path.exists(input_filepath):
         raise ValueError("Input path does not exist")
+    if not path.exists(output_filepath):
+        raise ValueError("Output path does not exist")
 
-    image_path = list(input_filepath.glob("**/*.png")) + list(input_filepath.glob("**/*.jpg"))
+    image_path = list(input_filepath.glob("**/*.png")) + list(
+        input_filepath.glob("**/*.jpg")
+    )
     # All path to images
     non_segmented_images = [img for img in image_path if "GT" not in str(img)]
     labels_non_segment = [img.parts[-2] for img in non_segmented_images]
@@ -63,46 +66,43 @@ def main(cfg):
     print(int_classes)
 
     # Saving in a DataFrame
-    image_data = pd.DataFrame({'Path': non_segmented_images,\
-              'labels': lables})
+    image_data = pd.DataFrame({"Path": non_segmented_images, "labels": lables})
     ##########################
     ### FISH DATASET
     ##########################
     convert_tensor = transforms.ToTensor()
 
     aug_list = ImageSequential(
-    #     kornia.color.BgrToRgb(),
+        #     kornia.color.BgrToRgb(),
         kornia.augmentation.ColorJitter(0.2, 0.0, 0.0, 0.0, p=1.0),
-    #     kornia.filters.MedianBlur((3, 3)),
+        #     kornia.filters.MedianBlur((3, 3)),
         kornia.augmentation.RandomAffine(360, p=1.0),
-    #     kornia.augmentation.RandomGaussianNoise(mean=0., std=1., p=0.5),
+        #     kornia.augmentation.RandomGaussianNoise(mean=0., std=1., p=0.5),
         kornia.augmentation.RandomPerspective(0.1, p=0.8),
         kornia.augmentation.RandomHorizontalFlip(p=0.5)
-    #     kornia.enhance.Invert(),
-    #     kornia.augmentation.RandomMixUp(p=1.0),
-    #     return_transform=True,
-    #     same_on_batch=True
-    #     random_apply=10
+        #     kornia.enhance.Invert(),
+        #     kornia.augmentation.RandomMixUp(p=1.0),
+        #     return_transform=True,
+        #     same_on_batch=True
+        #     random_apply=10
     )
-
 
     for label in list(set(lables)):
         class_name = list(int_classes.keys())[list(int_classes.values()).index(label)]
         print(class_name)
         iter_num = 0
-        dir_exist = os.path.exists(f'{output_filepath}{class_name}')
+        dir_exist = os.path.exists(f"{output_filepath}{class_name}")
         if not dir_exist:
-            os.mkdir(f'{output_filepath}{class_name}')
+            os.mkdir(f"{output_filepath}{class_name}")
         for im in image_data[image_data.labels == label].Path:
             print(im)
             img = Image.open(im)
             img_tensor = convert_tensor(img)
             for i in range(10):
                 out = aug_list(img_tensor)
-                image = out[0].numpy().transpose((1,2,0))
-                plt.imsave(f'{output_filepath}{class_name}\im{iter_num}.png', image)
-                iter_num += 1 
-
+                image = out[0].numpy().transpose((1, 2, 0))
+                plt.imsave(f"{output_filepath}{class_name}\im{iter_num}.png", image)
+                iter_num += 1
 
     # Create Data Loaders
     train_loader, val_loader, test_loader = get_loaders(
@@ -123,6 +123,7 @@ def main(cfg):
     torch.save(train_loader, f"{output_filepath}train.pt")
     torch.save(val_loader, f"{output_filepath}test.pt")
     torch.save(test_loader, f"{output_filepath}val.pt")
+
 
 class FishDataset(TensorDataset):
     def __init__(self, images, labels, transform=None):
@@ -173,10 +174,6 @@ def get_loaders(
     return train_loader, val_loader, test_loader
 
 
-
-   
-
-            
 if __name__ == "__main__":
     log_fmt = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     logging.basicConfig(level=logging.INFO, format=log_fmt)
@@ -190,6 +187,3 @@ if __name__ == "__main__":
 
     # pytest.main(["-qq"], plugins=[FishDataset()])
     main()
-
-    
-
