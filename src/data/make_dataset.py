@@ -82,7 +82,10 @@ def main(cfg):
     ##########################
     ### FISH DATASET
     ##########################
-    convert_tensor = transforms.ToTensor()
+    convert_tensor = transforms.Compose(
+        [
+            transforms.Resize((64, 64)),
+            transforms.ToTensor()])
 
     aug_list = ImageSequential(
         #     kornia.color.BgrToRgb(),
@@ -103,10 +106,10 @@ def main(cfg):
     for label in uniqLabels:
         class_name = list(int_classes.keys())[list(int_classes.values()).index(label)]
         print(class_name)
-        iter_num = 0
         dir_exist = os.path.exists(f"{output_filepath}{class_name}")
         if not dir_exist:
             os.mkdir(f"{output_filepath}{class_name}")
+        counter = 0
         for im in image_data[image_data.labels == label].Path:
             print(im)
             img = Image.open(im)
@@ -114,8 +117,8 @@ def main(cfg):
             out = aug_list(img_tensor)
             for i in range(10):
                 image = out[i].numpy().transpose((1, 2, 0))
-                plt.imsave(f"{output_filepath}{class_name}\im{i}.png", image)
-
+                plt.imsave(f"{output_filepath}{class_name}\im{counter}{i}.png", image)
+            counter += 1
 
 
 if __name__ == "__main__":
