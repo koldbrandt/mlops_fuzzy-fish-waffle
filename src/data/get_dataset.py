@@ -13,29 +13,25 @@ from torch.utils.data import Dataset, TensorDataset
 import hydra
 import os
 import sys
-# from tests.test_data import test_traindata_length
-# @click.command()
-# @click.argument("input_filepath", type=click.Path(exists=True))
-# @click.argument("output_filepath", type=click.Path())
+from os import path
 
-@hydra.main(config_name= "makeDataset_conf.yaml" ,config_path="../../conf")
 
+@hydra.main(config_name="makeDataset_conf.yaml", config_path="../../conf")
 def main(cfg):
-    """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
-    into cleaned data ready to be analyzed (saved in ../processed).
+    """Runs data processing scripts to turn processed data from (input_filepath : ../processed)
+    into dataloaders that will get returned. 
     """
-    # logger = logging.getLogger(__name__)
-    # logger.info("making final data set from raw data")
-    os.chdir(hydra.utils.get_original_cwd())
-    print("Working directory : {}".format(os.getcwd()))
-    # test_traindata_length()
-
-    input_filepath = cfg.input_filepath
-    output_filepath = cfg.output_filepath
-
+    input_filepath = f"{cfg.hyperparameters.input_filepath}"
+    output_filepath = f"{cfg.hyperparameters.output_filepath}"
     input_filepath = Path(input_filepath)
 
-    image_path = list(input_filepath.glob("**/*.png")) + list(input_filepath.glob("**/*.jpg"))
+    # Check if path exists else raise error
+    if not path.exists(input_filepath):
+        raise ValueError("Input path does not exist")
+
+    image_path = list(input_filepath.glob("**/*.png")) + list(
+        input_filepath.glob("**/*.jpg")
+    )
     # All path to images
     non_segmented_images = [img for img in image_path if "GT" not in str(img)]
     labels_non_segment = [img.parts[-2] for img in non_segmented_images]
@@ -62,15 +58,7 @@ def main(cfg):
     ### FISH DATASET
     ##########################
 
-    train_transform = transforms.Compose(
-        [
-            transforms.Resize((64, 64)),
-            transforms.ToTensor(),
-            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-        ]
-    )
-
-    test_transforms = transforms.Compose(
+    transform = transforms.Compose(
         [
             transforms.Resize((64, 64)),
             transforms.ToTensor(),
@@ -88,15 +76,11 @@ def main(cfg):
         test_labels,
         cfg.TRAIN_BATCHSIZE,
         1,
-        train_transform,
-        test_transforms,
+        transform,
     )
 
-    print(train_loader)
-    # Save data
-    torch.save(train_loader, f"{output_filepath}train.pt")
-    torch.save(val_loader, f"{output_filepath}test.pt")
-    torch.save(test_loader, f"{output_filepath}val.pt")
+    return train_loader, val_loader, test_loader
+
 
 class FishDataset(TensorDataset):
     def __init__(self, images, labels, transform=None):
@@ -124,16 +108,15 @@ def get_loaders(
     test_labels,
     batch_size,
     num_workers,
-    train_transform,
-    test_transform,
+    transform,
 ):
     """
     Returns the Train, Validation and Test DataLoaders.
     """
 
-    train_ds = FishDataset(images=train, labels=train_labels, transform=train_transform)
-    val_ds = FishDataset(images=val, labels=val_labels, transform=test_transform)
-    test_ds = FishDataset(images=test, labels=test_labels, transform=test_transform)
+    train_ds = FishDataset(images=train, labels=train_labels, transform=transform)
+    val_ds = FishDataset(images=val, labels=val_labels, transform=transform)
+    test_ds = FishDataset(images=test, labels=test_labels, transform=transform)
 
     train_loader = DataLoader(
         train_ds, batch_size=batch_size, num_workers=num_workers, shuffle=True

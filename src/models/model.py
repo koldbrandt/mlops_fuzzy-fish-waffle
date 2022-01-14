@@ -1,5 +1,6 @@
-import  torch
-import  torch.nn as nn
+import torch
+import torch.nn as nn
+
 
 # Architecture
 class Network(torch.nn.Module):
@@ -27,26 +28,26 @@ class Network(torch.nn.Module):
             nn.Dropout(0.5),
             #
             nn.Linear(128, num_classes),
-            )
+        )
+
     def forward(self, x):
         logits = self.layers(x)
         return logits
 
 
 def validation(model, testloader, criterion):
-    """Model validation
-    """
+    """Model validation"""
     accuracy = 0
     test_loss = 0
     for images, labels in testloader:
         output = model.forward(images)
         test_loss += criterion(output, labels).item()
 
-        ## Calculating the accuracy 
+        ## Calculating the accuracy
         # Model's output is log-softmax, take exponential to get the probabilities
         ps = torch.exp(output)
         # Class with highest probability is our predicted class, compare with true label
-        equality = (labels.data == ps.max(1)[1])
+        equality = labels.data == ps.max(1)[1]
         # Accuracy is number of correct predictions divided by all predictions, just take the mean
         accuracy += equality.type_as(torch.FloatTensor()).mean()
 

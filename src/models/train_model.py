@@ -1,23 +1,24 @@
-from model import Network
+import os
+
+import hydra
+import matplotlib.pyplot as plt
 import model as md
 import torch
+from model import Network
 from torch import nn, optim
-import matplotlib.pyplot as plt
-import hydra
-import os
+
 from src.data.make_dataset import FishDataset
-#import wandb
+
+# import wandb
 
 
-@hydra.main(config_name= "training_conf.yaml" ,config_path="../../conf")
+@hydra.main(config_name="training_conf.yaml", config_path="../../conf")
 def main(cfg):
-    """Training loop
-    """
+    """Training loop"""
     os.chdir(hydra.utils.get_original_cwd())
     print("Working directory : {}".format(os.getcwd()))
-    print("Training day and night")    
-    model = Network(cfg.num_classes)   
-
+    print("Training day and night")
+    model = Network(cfg.num_classes)
 
     # Magic
     # wandb.watch(model, log_freq=cfg.print_every)
@@ -28,11 +29,9 @@ def main(cfg):
 
     optimizer = optim.SGD(model.parameters(), lr=cfg.lr, momentum=cfg.momentum)
     criterion = nn.CrossEntropyLoss()
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer,
-                                                       factor=0.1,
-                                                       mode='max',
-                                                       verbose=True)
-
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+        optimizer, factor=0.1, mode="max", verbose=True
+    )
 
     minibatch_loss_list = []
     steps = 0
@@ -50,7 +49,6 @@ def main(cfg):
             optimizer.zero_grad()
 
             labels = labels.type(torch.LongTensor)
-            
 
             output = model(images)
             loss = criterion(output, labels)
@@ -64,16 +62,17 @@ def main(cfg):
 
                 # Model in inference mode, dropout is off
                 model.eval()
-                
+
                 # Turn off gradients for validation, will speed up inference
                 with torch.no_grad():
                     test_loss, accuracy = md.validation(model, testloader, criterion)
 
-
-                print("Epoch: {}/{}.. ".format(e+1, epochs),
-                      "Training Loss: {:.3f}.. ".format(running_loss/print_every),
-                      "Test Loss: {:.3f}.. ".format(test_loss/len(testloader)),
-                      "Test Accuracy: {:.3f}".format(accuracy/len(testloader)))
+                print(
+                    "Epoch: {}/{}.. ".format(e + 1, epochs),
+                    "Training Loss: {:.3f}.. ".format(running_loss / print_every),
+                    "Test Loss: {:.3f}.. ".format(test_loss / len(testloader)),
+                    "Test Accuracy: {:.3f}".format(accuracy / len(testloader)),
+                )
 
                 losses.append(running_loss / print_every)
                 timestamp.append(steps)
@@ -86,13 +85,11 @@ def main(cfg):
     plt.ylabel("loss")
     plt.savefig("reports/figures/training.png")
 
-    #plt.show()
+    # plt.show()
     checkpoint = {
         "state_dict": model.state_dict(),
     }
     torch.save(checkpoint, "models/checkpoint.pth")
-
-
 
 
 if __name__ == "__main__":

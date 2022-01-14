@@ -1,10 +1,14 @@
 # If data is not present then skip
+import os
 import os.path
 
 import pytest
 import torch
-from src.data.make_dataset import FishDataset
-from torch.utils.data import Dataset, TensorDataset
+from omegaconf import OmegaConf
+
+# import src.data.make_dataset
+from src.data.make_dataset import main
+
 
 # import _src.__main__
 @pytest.mark.skipif(not os.path.exists('data/processed/train.pt'), reason="Train files not found")
@@ -14,15 +18,50 @@ from torch.utils.data import Dataset, TensorDataset
 # RUN test : coverage run -m pytest tests/
 # See coverage : coverage report
 
-# class TestClass:
+class TestClass:
+    def test_InputPath_Exists(self):
+        """
+        Test value error raised if input_path does not exist
+        """
+        CONFIG = OmegaConf.create(
+            {
+                "hyperparameters":{
+                    "TRAIN_BATCHSIZE": 4,
+                    "input_filepath": os.getcwd()+'/test/some/path',
+                    "output_filepath": os.getcwd()+'/data/processed',
+                    
+                }
+            }
+        )
+        with pytest.raises(ValueError, match="Input path does not exist"):
+            main(CONFIG)
 
-def test_traindata_length():
+    def test_OutputPath_Exists(self):
+        """
+        Test value error raised if output_path does not exist
+        """
+        CONFIG = OmegaConf.create(
+            {
+                "hyperparameters":{
+                    "TRAIN_BATCHSIZE": 4,
+                    "input_filepath": os.getcwd()+'/data/raw/',
+                    "output_filepath": os.getcwd()+'/test/some/path',
+                }
+            }
+        )
+        with pytest.raises(ValueError, match="Output path does not exist"):
+            main(CONFIG)
+
+  
+    
+
+# def test_traindata_length():
 
 
-    train_ds = FishDataset(images=[], labels=[])
-    train_dataset = torch.load('data/processed/train.pt')
-    N_train = 25000
-    assert len(train_dataset) == N_train
+#     train_ds = FishDataset(images=[], labels=[])
+#     train_dataset = torch.load('data/processed/train.pt')
+#     N_train = 25000
+#     assert len(train_dataset) == N_train
 
     # assert len(train_dataset) == N_train
 
