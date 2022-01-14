@@ -10,7 +10,6 @@ import  matplotlib.pyplot as plt
 import pandas as pd
 
 import hydra
-import pytest
 import torch
 from dotenv import find_dotenv, load_dotenv
 from omegaconf import OmegaConf
