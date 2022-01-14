@@ -52,15 +52,15 @@ def get_params(cfg):
     """
     Returns all parameters in config file
     """
-    input_filepath = f"{cfg.hyperparameters.input_filepath}"
-    output_filepath = f"{cfg.hyperparameters.output_filepath}"
+    input_filepath = f"{cfg.paths.input_filepath}"
+    output_filepath = f"{cfg.paths.output_filepath}"
     input_filepath = Path(input_filepath)
 
     return input_filepath, output_filepath
 
 
 
-@hydra.main(config_name="makeDataset_conf.yaml", config_path="../../conf")
+@hydra.main(config_name="dataset_conf.yaml", config_path="../../conf")
 def main(cfg):
     """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
     into cleaned data ready to be analyzed (saved in ../processed).

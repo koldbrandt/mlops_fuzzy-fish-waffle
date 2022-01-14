@@ -6,8 +6,7 @@ import model as md
 import torch
 from model import Network
 from torch import nn, optim
-
-from src.data.make_dataset import FishDataset
+import src.data.get_dataset
 
 # import wandb
 
@@ -15,19 +14,17 @@ from src.data.make_dataset import FishDataset
 @hydra.main(config_name="training_conf.yaml", config_path="../../conf")
 def main(cfg):
     """Training loop"""
-    os.chdir(hydra.utils.get_original_cwd())
-    print("Working directory : {}".format(os.getcwd()))
+
     print("Training day and night")
-    model = Network(cfg.num_classes)
+    model = Network(cfg.hyperparameters.num_classes)
 
     # Magic
     # wandb.watch(model, log_freq=cfg.print_every)
+    trainloader, _, testloader = src.data.get_dataset.main(cfg)
 
     model.train()
-    trainloader = torch.load(cfg.train_data)
-    testloader = torch.load(cfg.test_data)
 
-    optimizer = optim.SGD(model.parameters(), lr=cfg.lr, momentum=cfg.momentum)
+    optimizer = optim.SGD(model.parameters(), lr=cfg.hyperparameters.lr, momentum=cfg.hyperparameters.momentum)
     criterion = nn.CrossEntropyLoss()
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, factor=0.1, mode="max", verbose=True
@@ -38,8 +35,8 @@ def main(cfg):
     running_loss = 0
     losses = []
     timestamp = []
-    epochs = cfg.epochs
-    print_every = cfg.print_every
+    epochs = cfg.hyperparameters.epochs
+    print_every = cfg.hyperparameters.print_every
     for e in range(epochs):
         # Model in training mode, dropout is on
         model.train()

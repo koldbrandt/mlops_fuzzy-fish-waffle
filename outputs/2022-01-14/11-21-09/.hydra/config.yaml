@@ -1,0 +1,9 @@
+hyperparameters:
+  epochs: 10
+  print_every: 40
+  lr: 0.01
+  momentum: 0.9
+  num_classes: 9
+paths:
+  train_data: ${hydra:runtime.cwd}/data/processed/train.pt
+  test_data: ${hydra:runtime.cwd}/data/processed/test.pt
