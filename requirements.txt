@@ -16,3 +16,4 @@ kornia
 hydra-core
 matplotlib
 sklearn
+pandas
