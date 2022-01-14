@@ -110,12 +110,11 @@ def main(cfg):
         for im in image_data[image_data.labels == label].Path:
             print(im)
             img = Image.open(im)
-            img_tensor = convert_tensor(img)
+            img_tensor = convert_tensor(img).unsqueeze(0).repeat(10,1,1,1)
+            out = aug_list(img_tensor)
             for i in range(10):
-                out = aug_list(img_tensor)
-                image = out[0].numpy().transpose((1, 2, 0))
-                plt.imsave(f"{output_filepath}{class_name}\im{iter_num}.png", image)
-                iter_num += 1
+                image = out[i].numpy().transpose((1, 2, 0))
+                plt.imsave(f"{output_filepath}{class_name}\im{i}.png", image)
 
 
 
