@@ -1,5 +1,6 @@
 [core]
     remote = remote_storage
+    no_scm = true
 ['remote "storage"']
     url = gdrive://1Q_JbYbfBKJ-dQZVSlK53M77swpbTMfW4
 ['remote "remote_storage"']
