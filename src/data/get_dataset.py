@@ -14,43 +14,45 @@ import hydra
 import os
 import sys
 from os import path
+from src.data.make_dataset import getImagesAndLabels
 
 
-@hydra.main(config_name="makeDataset_conf.yaml", config_path="../../conf")
+def get_params(cfg):
+    """
+    Returns relevant parameters in config file
+    """
+    input_filepath = f"{cfg.paths.input_filepath}"
+    input_filepath = Path(input_filepath)
+    TRAIN_BATCHSiZE = cfg.hyperparameters.TRAIN_BATCHSIZE
+    TEST_SIZE = cfg.hyperparameters.TEST_SIZE
+
+    return input_filepath, TRAIN_BATCHSiZE, TEST_SIZE
+
+
+# @hydra.main(config_name="dataset_conf.yaml", config_path="../../conf")
 def main(cfg):
-    """Runs data processing scripts to turn processed data from (input_filepath : ../processed)
+    """
+    Runs data processing scripts to turn processed data from (input_filepath : ../processed)
     into dataloaders that will get returned. 
     """
-    input_filepath = f"{cfg.hyperparameters.input_filepath}"
-    input_filepath = Path(input_filepath)
+    # input_filepath = f"{cfg.hyperparameters.input_filepath}"
+    # input_filepath = Path(input_filepath)
+    input_filepath, TRAIN_BATCHSIZE, TEST_SIZE  = get_params(cfg)
 
     # Check if path exists else raise error
     if not path.exists(input_filepath):
         raise ValueError("Input path does not exist")
 
-    image_path = list(input_filepath.glob("**/*.png")) + list(
-        input_filepath.glob("**/*.jpg")
-    )
-    # All path to images
-    non_segmented_images = [img for img in image_path if "GT" not in str(img)]
-    labels_non_segment = [img.parts[-2] for img in non_segmented_images]
 
-    # All fish classes
-    classes = list(set(labels_non_segment))
-    print(f"Available Classes: {classes}")
+    non_segmented_images, labels, _, _ = getImagesAndLabels(input_filepath)
 
-    int_classes = {fish: i for i, fish in enumerate(classes)}
-    lables = [int_classes[lable] for lable in labels_non_segment]
-
-    # Label Dictionary
-    print(int_classes)
 
     train, test, train_labels, test_labels = train_test_split(
-        non_segmented_images, lables, test_size=0.2, shuffle=True
+        non_segmented_images, labels, test_size=TEST_SIZE, shuffle=True
     )
 
     train, val, train_labels, val_labels = train_test_split(
-        train, train_labels, test_size=0.2, shuffle=True
+        train, train_labels, test_size=TEST_SIZE, shuffle=True
     )
 
     ##########################
@@ -73,7 +75,7 @@ def main(cfg):
         val_labels,
         test,
         test_labels,
-        cfg.TRAIN_BATCHSIZE,
+        TRAIN_BATCHSIZE,
         1,
         transform,
     )
