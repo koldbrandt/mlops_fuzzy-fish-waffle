@@ -21,9 +21,8 @@ def main(cfg):
     """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
     into cleaned data ready to be analyzed (saved in ../processed).
     """
-
-    input_filepath = cfg.input_filepath
-    output_filepath = cfg.output_filepath
+    input_filepath = f"{cfg.hyperparameters.input_filepath}"
+    output_filepath = f"{cfg.hyperparameters.output_filepath}"
     input_filepath = Path(input_filepath)
 
     # Check if path exists else raise error
