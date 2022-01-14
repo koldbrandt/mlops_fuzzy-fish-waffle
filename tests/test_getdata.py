@@ -7,7 +7,7 @@ import torch
 from omegaconf import OmegaConf
 
 # import src.data.make_dataset
-from src.data.make_dataset import FishDataset, main
+from src.data.get_dataset import FishDataset, main
 
 
 # import _src.__main__
@@ -52,7 +52,7 @@ class TestClass:
         with pytest.raises(ValueError, match="Output path does not exist"):
             main(CONFIG)
 
-
+    
 
 # def test_traindata_length():
 
