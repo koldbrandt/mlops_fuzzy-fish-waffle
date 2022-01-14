@@ -2,24 +2,43 @@ import logging
 import pathlib
 
 import click
+from omegaconf import OmegaConf
 import model as md
 import torch
 from dotenv import find_dotenv, load_dotenv
 from model import Network
 from torch import nn
-
-from src.data.make_dataset import FishDataset
-
+import src.data.get_dataset
+import os
 
 @click.command()
 @click.argument("model_filepath", type=click.Path(exists=True))
-@click.argument("predict_filepath", type=click.Path())
 def main(
     model_filepath: str = "models/checkpoint.pth",
-    predict_filepath: str = "data/processed/val.pt",
 ):
+    CONFIG = OmegaConf.create(
+
+            {
+
+                "hyperparameters":{
+
+                    "TRAIN_BATCHSIZE": 64,
+
+                    "TEST_SIZE": 0.2,
+
+                },
+
+                "paths" : {
+
+                    "input_filepath": os.getcwd()+'/data/processed/',
+
+                }
+
+            }
+
+        )
     model = load_checkpoint(model_filepath)
-    valloader = torch.load(predict_filepath)
+    _ , valloader, _ = src.data.get_dataset.main(CONFIG)
     criterion = nn.CrossEntropyLoss()
 
     test_loss, accuracy = md.validation(model, valloader, criterion)
