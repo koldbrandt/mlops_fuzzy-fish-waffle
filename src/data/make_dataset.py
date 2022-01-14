@@ -117,7 +117,7 @@ def main(cfg):
             out = aug_list(img_tensor)
             for i in range(10):
                 image = out[i].numpy().transpose((1, 2, 0))
-                plt.imsave(f"{output_filepath}{class_name}\im{counter}{i}.png", image)
+                plt.imsave(f"{output_filepath}{class_name}/im{counter}{i}.png", image)
             counter += 1
 
 
