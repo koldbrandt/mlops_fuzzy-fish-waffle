@@ -18,8 +18,8 @@ from os import path
 
 @hydra.main(config_name="makeDataset_conf.yaml", config_path="../../conf")
 def main(cfg):
-    """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
-    into cleaned data ready to be analyzed (saved in ../processed).
+    """Runs data processing scripts to turn processed data from (input_filepath : ../processed)
+    into dataloaders that will get returned. 
     """
 
     input_filepath = cfg.input_filepath
@@ -29,9 +29,6 @@ def main(cfg):
     # Check if path exists else raise error
     if not path.exists(input_filepath):
         raise ValueError("Input path does not exist")
-    if not path.exists(output_filepath):
-        raise ValueError("Output path does not exist")
-
 
     image_path = list(input_filepath.glob("**/*.png")) + list(
         input_filepath.glob("**/*.jpg")
@@ -62,15 +59,7 @@ def main(cfg):
     ### FISH DATASET
     ##########################
 
-    train_transform = transforms.Compose(
-        [
-            transforms.Resize((64, 64)),
-            transforms.ToTensor(),
-            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-        ]
-    )
-
-    test_transforms = transforms.Compose(
+    transform = transforms.Compose(
         [
             transforms.Resize((64, 64)),
             transforms.ToTensor(),
@@ -88,15 +77,10 @@ def main(cfg):
         test_labels,
         cfg.TRAIN_BATCHSIZE,
         1,
-        train_transform,
-        test_transforms,
+        transform,
     )
 
-    print(train_loader)
-    # Save data
-    torch.save(train_loader, f"{output_filepath}train.pt")
-    torch.save(val_loader, f"{output_filepath}test.pt")
-    torch.save(test_loader, f"{output_filepath}val.pt")
+    return train_loader, val_loader, test_loader
 
 
 class FishDataset(TensorDataset):
@@ -125,16 +109,15 @@ def get_loaders(
     test_labels,
     batch_size,
     num_workers,
-    train_transform,
-    test_transform,
+    transform,
 ):
     """
     Returns the Train, Validation and Test DataLoaders.
     """
 
-    train_ds = FishDataset(images=train, labels=train_labels, transform=train_transform)
-    val_ds = FishDataset(images=val, labels=val_labels, transform=test_transform)
-    test_ds = FishDataset(images=test, labels=test_labels, transform=test_transform)
+    train_ds = FishDataset(images=train, labels=train_labels, transform=transform)
+    val_ds = FishDataset(images=val, labels=val_labels, transform=transform)
+    test_ds = FishDataset(images=test, labels=test_labels, transform=transform)
 
     train_loader = DataLoader(
         train_ds, batch_size=batch_size, num_workers=num_workers, shuffle=True
