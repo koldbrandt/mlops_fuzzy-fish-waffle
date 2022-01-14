@@ -22,8 +22,6 @@ def main(cfg):
     # wandb.watch(model, log_freq=cfg.print_every)
     trainloader, _, testloader = src.data.get_dataset.main(cfg)
 
-    model.train()
-
     optimizer = optim.SGD(model.parameters(), lr=cfg.hyperparameters.lr, momentum=cfg.hyperparameters.momentum)
     criterion = nn.CrossEntropyLoss()
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(

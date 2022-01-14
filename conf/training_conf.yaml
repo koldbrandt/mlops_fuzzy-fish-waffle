@@ -4,7 +4,7 @@ hyperparameters:
   lr : 0.01
   momentum : 0.9
   num_classes : 9
-  TRAIN_BATCHSIZE: 4
+  TRAIN_BATCHSIZE: 64
   TEST_SIZE: 0.2
 
 paths: 

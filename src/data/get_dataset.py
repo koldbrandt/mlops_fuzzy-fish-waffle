@@ -46,6 +46,8 @@ def main(cfg):
 
     non_segmented_images, labels, _, _ = getImagesAndLabels(input_filepath)
 
+    
+
 
     train, test, train_labels, test_labels = train_test_split(
         non_segmented_images, labels, test_size=TEST_SIZE, shuffle=True
@@ -61,8 +63,8 @@ def main(cfg):
 
     transform = transforms.Compose(
         [
-            transforms.ToTensor(),
-            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+            transforms.ToTensor()
+            #transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
         ]
     )
 
@@ -92,7 +94,8 @@ class FishDataset(TensorDataset):
         return len(self.labels)
 
     def __getitem__(self, idx: int):
-        img = Image.open(self.images[idx])
+        img = Image.open(self.images[idx]).convert('RGB')
+
         if self.transform:
             img = self.transform(img)
             label = self.labels[idx]
