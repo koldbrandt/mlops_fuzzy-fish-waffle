@@ -27,29 +27,11 @@ class TestClass:
             {
                 "hyperparameters":{
                     "TRAIN_BATCHSIZE": 4,
-                    "input_filepath": os.getcwd()+'/test/some/path',
-                    "output_filepath": os.getcwd()+'/data/processed',
-                    
+                    "input_filepath": os.getcwd()+'/test/some/path'
                 }
             }
         )
         with pytest.raises(ValueError, match="Input path does not exist"):
-            main(CONFIG)
-
-    def test_OutputPath_Exists(self):
-        """
-        Test value error raised if output_path does not exist
-        """
-        CONFIG = OmegaConf.create(
-            {
-                "hyperparameters":{
-                    "TRAIN_BATCHSIZE": 4,
-                    "input_filepath": os.getcwd()+'/data/raw/',
-                    "output_filepath": os.getcwd()+'/test/some/path',
-                }
-            }
-        )
-        with pytest.raises(ValueError, match="Output path does not exist"):
             main(CONFIG)
 
     
