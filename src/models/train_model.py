@@ -4,6 +4,7 @@ import hydra
 import matplotlib.pyplot as plt
 import model as md
 import torch
+import subprocess
 from model import Network
 from torch import nn, optim
 import src.data.get_dataset
@@ -85,6 +86,12 @@ def main(cfg):
         "state_dict": model.state_dict(),
     }
     torch.save(checkpoint, hydra.utils.get_original_cwd() + "/models/checkpoint.pth")
+
+    if cfg.cloud.save == True:
+        subprocess.check_call([
+        'gsutil', 'cp', "/models/checkpoint.pth",
+        os.path.join(cfg.cloud.path, model.pt)])
+
 
 
 if __name__ == "__main__":
