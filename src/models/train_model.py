@@ -88,8 +88,9 @@ def main(cfg):
     torch.save(checkpoint, hydra.utils.get_original_cwd() + "/models/checkpoint.pth")
 
     if cfg.cloud.save == True:
+
         subprocess.check_call([
-        'gsutil', 'cp', "/models/checkpoint.pth",
+        'gsutil', 'cp', os.path.join(hydra.utils.get_original_cwd(), 'models/checkpoint.pth'),
         os.path.join(cfg.cloud.path, 'model.pt')])
 
 
