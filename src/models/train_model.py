@@ -90,7 +90,7 @@ def main(cfg):
     if cfg.cloud.save == True:
         subprocess.check_call([
         'gsutil', 'cp', "/models/checkpoint.pth",
-        os.path.join(cfg.cloud.path, model.pt)])
+        os.path.join(cfg.cloud.path, 'model.pt')])
 
 
 
