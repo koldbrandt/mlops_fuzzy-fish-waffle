@@ -4,7 +4,9 @@ From python:3.7-slim
 # install python 
 RUN apt update && \
 apt install --no-install-recommends -y build-essential gcc && \
+apt install -y wget \
 apt clean && rm -rf /var/lib/apt/lists/*
+
 
 # install google sdk
 RUN wget -nv \
