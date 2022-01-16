@@ -33,9 +33,9 @@ The model will have 3 convolutional layers with batchnormalization and relu will
 - [ ] Calculate the coverage.
 - [x] Get some continuous integration running on the github repository
 - [X] (optional) Create a new project on `gcp` and invite all group members to it
-- [ ] Create a data storage on `gcp` for you data
-- [ ] Create a trigger workflow for automatically building your docker images
-- [ ] Get your model training on `gcp`
+- [X] Create a data storage on `gcp` for you data
+- [X] Create a trigger workflow for automatically building your docker images
+- [X] Get your model training on `gcp`
 - [ ] Play around with distributed data loading
 - [ ] (optional) Play around with distributed model training
 - [ ] Play around with quantization and compilation for you trained models
