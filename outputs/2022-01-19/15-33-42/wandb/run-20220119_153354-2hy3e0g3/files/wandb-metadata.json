@@ -1,0 +1,24 @@
+{
+    "os": "Windows-10-10.0.19041-SP0",
+    "python": "3.9.7",
+    "heartbeatAt": "2022-01-19T14:33:56.072699",
+    "startedAt": "2022-01-19T14:33:54.014972",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 2070 with Max-Q Design",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\bgran\\OneDrive - Danmarks Tekniske Universitet\\studies\\Machine Learning Operations\\mlops_fuzzy-fish-waffle\\src\\models\\train_model_lightning.py",
+    "codePath": "src\\models\\train_model_lightning.py",
+    "git": {
+        "remote": "https://github.com/koldbrandt/mlops_fuzzy-fish-waffle.git",
+        "commit": "e93652d0ce6e32c4c31ca3cd375a1cdea5bc1059"
+    },
+    "email": "bartek.granat@gmail.com",
+    "root": "C:/Users/bgran/OneDrive - Danmarks Tekniske Universitet/studies/Machine Learning Operations/mlops_fuzzy-fish-waffle",
+    "host": "LAPTOP-2HELCL28",
+    "username": "bgran",
+    "executable": "C:\\Users\\bgran\\anaconda3\\envs\\my_environment\\python.exe"
+}
