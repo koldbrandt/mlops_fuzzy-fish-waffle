@@ -7,6 +7,8 @@ import hydra
 from datetime import datetime
 import torchdrift
 import copy
+import subprocess
+import os
 
 
 @hydra.main(config_name="training_conf.yaml", config_path="../../conf")
@@ -24,18 +26,33 @@ def main(cfg):
     trainer.fit(model, trainloader, testloader)
 
     # plt.show()
-    checkpoint = {
-        "state_dict": model.state_dict(),
-    }
+    # checkpoint = {
+    #     "state_dict": model.state_dict(),
+    # }
 
     date_time = datetime.now().strftime("%m%d%Y%H%M%S")
 
-    torch.save(
-        checkpoint,
-        "{cwd}/models/checkpoint_{date_time}.pth".format(
+    trainer.save_checkpoint("{cwd}/models/checkpoint_{date_time}.pth".format(
             cwd=hydra.utils.get_original_cwd(), date_time=date_time
-        ),
-    )
+        ))
+
+    if cfg.cloud.save:
+        subprocess.check_call(
+            [
+                "gsutil",
+                "cp",
+                os.path.join(
+                    hydra.utils.get_original_cwd(), f"models/checkpoint{date_time}.pth"
+                ),
+                os.path.join(cfg.cloud.path, f"model_{date_time}.pt"),
+            ]
+        )
+    # torch.save(
+    #     checkpoint,
+    #     "{cwd}/models/checkpoint_{date_time}.pth".format(
+    #         cwd=hydra.utils.get_original_cwd(), date_time=date_time
+    #     ),
+    # )
 
     inputs, _ = next(iter(trainloader))
     inputs_ood = corruption_function(inputs)
