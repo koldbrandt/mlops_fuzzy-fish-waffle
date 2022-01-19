@@ -45,4 +45,4 @@ RUN wandb login $WANDB_API_KEY_LOG
 
 RUN dvc pull
 
-ENTRYPOINT ["python", "-u", "src/models/train_model.py"]
+ENTRYPOINT ["python", "-u", "src/models/train_model_lightning.py"]

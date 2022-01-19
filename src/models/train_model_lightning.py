@@ -6,12 +6,14 @@ from src.data import get_dataset
 import hydra
 from datetime import datetime
 
+
 @hydra.main(config_name="training_conf.yaml", config_path="../../conf")
 def main(cfg):
-    
+
     trainloader, _, testloader = get_dataset.main(cfg)
-    
+
     model = LightningModel(10)
+
     wd_logger = loggers.WandbLogger(name="test", entity ="fuzzy-fish-waffle")
     trainer = pl.Trainer(logger=wd_logger, max_epochs=2)
 
@@ -44,7 +46,7 @@ def main(cfg):
     # feature_extractor.classifier = torch.nn.Identity()
 
     # drift_detector = torchdrift.detectors.KernelMMDDriftDetector()
-    
+
     # torchdrift.utils.fit(trainloader, feature_extractor, drift_detector)
 
     # drift_detection_model = torch.nn.Sequential(
