@@ -1,0 +1,6 @@
+paths:
+  input_filepath: ${hydra:runtime.cwd}/data/raw/
+  output_filepath: ${hydra:runtime.cwd}/data/processed/
+hyperparameters:
+  TRAIN_BATCHSIZE: 4
+  TEST_SIZE: 0.2

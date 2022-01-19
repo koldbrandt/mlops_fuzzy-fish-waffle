@@ -27,7 +27,7 @@ class Network(torch.nn.Module):
             nn.BatchNorm1d(128),
             nn.LeakyReLU(0.1, inplace=True),
             nn.Dropout(0.5),
-            nn.Linear(128, num_classes)
+            nn.Linear(128, num_classes),
         )
 
     def forward(self, x):

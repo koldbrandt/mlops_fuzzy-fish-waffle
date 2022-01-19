@@ -17,3 +17,4 @@ hydra-core
 matplotlib
 sklearn
 pandas
+wandb

@@ -2,16 +2,17 @@
 from os import path
 from pathlib import Path
 
-
+from omegaconf import OmegaConf
 from PIL import Image
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, TensorDataset
 from torchvision import transforms
+from typing import List
 
 from src.data.make_dataset import getImagesAndLabels
 
 
-def get_params(cfg):
+def get_params(cfg: OmegaConf):
     """
     Returns relevant parameters in config file
     """
@@ -21,9 +22,10 @@ def get_params(cfg):
     TEST_SIZE = cfg.hyperparameters.TEST_SIZE
     return input_filepath, TRAIN_BATCHSiZE, TEST_SIZE
 
-def main(cfg):
+
+def main(cfg: OmegaConf):
     """
-    Runs data processing scripts to turn processed data from 
+    Runs data processing scripts to turn processed data from
     (input_filepath : ../processed)
     into dataloaders that will get returned.
     """
@@ -88,14 +90,14 @@ class FishDataset(TensorDataset):
 
 
 def get_loaders(
-    train,
-    train_labels,
-    val,
-    val_labels,
-    test,
-    test_labels,
-    batch_size,
-    num_workers,
+    train: Path,
+    train_labels: List[int],
+    val: Path,
+    val_labels: List[int],
+    test: Path,
+    test_labels: List[int],
+    batch_size: int,
+    num_workers: int,
     transform,
 ):
     """

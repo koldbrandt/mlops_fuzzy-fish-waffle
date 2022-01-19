@@ -1,5 +1,13 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/mlops-fish/fish-docker', 'trainer.dockerfile']
+  entrypoint: 'bash'
+  args: [ '-c', 'docker build -t gcr.io/mlops-fish/fish-docker . --build-arg WANDB_API_KEY_LOG=$$WANDB_API_KEY --no-cache']
+  secretEnv: ['WANDB_API_KEY']
+
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/mlops-fish/fish-docker']
+availableSecrets:
+  secretManager:
+  - versionName: projects/242636327774/secrets/WANDB_API_KEY/versions/1
+    env: 'WANDB_API_KEY'
+timeout: 1800s

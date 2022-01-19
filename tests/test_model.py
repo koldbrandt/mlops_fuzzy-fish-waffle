@@ -32,8 +32,6 @@ def test_inputshape_has_outputshape():
     model.train()
     for images, labels in trainloader:
         output = model(images)
-        # print(output.shape[1])
-        # print(images.shape[2:4])
         assert (
             images.shape[2:4] == torch.Size([64, 64]) and output.shape[1] == 9
         ), "Either images did not have shape 64x64 or the model output shape is not 9"
