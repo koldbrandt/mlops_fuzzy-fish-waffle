@@ -1,15 +1,16 @@
 import logging
-import pathlib
+import os
 
 import click
-from omegaconf import OmegaConf
 import model as md
 import torch
 from dotenv import find_dotenv, load_dotenv
 from model import Network
+from omegaconf import OmegaConf
 from torch import nn
+
 import src.data.get_dataset
-import os
+
 
 @click.command()
 @click.argument("model_filepath", type=click.Path(exists=True))
@@ -17,28 +18,18 @@ def main(
     model_filepath: str = "models/checkpoint.pth",
 ):
     CONFIG = OmegaConf.create(
-
-            {
-
-                "hyperparameters":{
-
-                    "TRAIN_BATCHSIZE": 64,
-
-                    "TEST_SIZE": 0.2,
-
-                },
-
-                "paths" : {
-
-                    "input_filepath": os.getcwd()+'/data/processed/',
-
-                }
-
-            }
-
-        )
+        {
+            "hyperparameters": {
+                "TRAIN_BATCHSIZE": 64,
+                "TEST_SIZE": 0.2,
+            },
+            "paths": {
+                "input_filepath": os.getcwd() + "/data/processed/",
+            },
+        }
+    )
     model = load_checkpoint(model_filepath)
-    _ , valloader, _ = src.data.get_dataset.main(CONFIG)
+    _, valloader, _ = src.data.get_dataset.main(CONFIG)
     criterion = nn.CrossEntropyLoss()
 
     test_loss, accuracy = md.validation(model, valloader, criterion)

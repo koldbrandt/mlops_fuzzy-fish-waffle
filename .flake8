@@ -1,4 +1,4 @@
 [flake8]
-exclude = venv
-ignore = W503 # W503: Line break occurred before binary operator
-max-line-length = 80
+exclude = venv, build, docs
+ignore = W503, E304, E302, E123, E301, W292, W291, W605 # W503: Line break occurred before binary operator
+max-line-length = 98

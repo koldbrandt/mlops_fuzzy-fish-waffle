@@ -1,30 +1,22 @@
 # -*- coding: utf-8 -*-
 import logging
 import os
-import sys
-from os import path
 from pathlib import Path
 
-from kornia.augmentation import ImageSequential
-import  matplotlib.pyplot as plt
-import pandas as pd
-
 import hydra
-import torch
-from dotenv import find_dotenv, load_dotenv
-from omegaconf import OmegaConf
 import kornia
-
+import matplotlib.pyplot as plt
+import pandas as pd
+from dotenv import find_dotenv, load_dotenv
+from kornia.augmentation import ImageSequential
 from PIL import Image
-from sklearn.model_selection import train_test_split
-from torch.utils.data import DataLoader, Dataset, TensorDataset
 from torchvision import transforms
 
 
 # from tests.test_data import test_traindata_length
 def getImagesAndLabels(input_filepath: Path):
     """
-    Takes a path as input and returns all images(PNG and JPG) in path 
+    Takes a path as input and returns all images(PNG and JPG) in path
     """
     image_path = list(input_filepath.glob("**/*.png")) + list(
         input_filepath.glob("**/*.jpg")
@@ -47,6 +39,7 @@ def getImagesAndLabels(input_filepath: Path):
 
     return non_segmented_images, lables, uniqlabels, int_classes
 
+
 def get_params(cfg):
     """
     Returns all parameters in config file
@@ -58,7 +51,6 @@ def get_params(cfg):
     return input_filepath, output_filepath
 
 
-
 @hydra.main(config_name="dataset_conf.yaml", config_path="../../conf")
 def main(cfg):
     """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
@@ -68,24 +60,21 @@ def main(cfg):
     input_filepath, output_filepath = get_params(cfg)
 
     # Check if path exists else raise error
-    if not path.exists(input_filepath):
+    if not os.path.exists(input_filepath):
         raise ValueError("Input path does not exist")
-    if not path.exists(output_filepath):
+    if not os.path.exists(output_filepath):
         raise ValueError("Output path does not exist")
 
-    
-    non_segmented_images, labels, uniqLabels, int_classes = getImagesAndLabels(input_filepath)
+    non_segmented_images, labels, uniqLabels, int_classes = getImagesAndLabels(
+        input_filepath
+    )
 
     # Saving in a DataFrame
     image_data = pd.DataFrame({"Path": non_segmented_images, "labels": labels})
 
-    ##########################
-    ### FISH DATASET
-    ##########################
     convert_tensor = transforms.Compose(
-        [
-            transforms.Resize((64, 64)),
-            transforms.ToTensor()])
+        [transforms.Resize((64, 64)), transforms.ToTensor()]
+    )
 
     aug_list = ImageSequential(
         #     kornia.color.BgrToRgb(),
@@ -102,7 +91,6 @@ def main(cfg):
         #     random_apply=10
     )
 
-
     for label in uniqLabels:
         class_name = list(int_classes.keys())[list(int_classes.values()).index(label)]
         print(class_name)
@@ -113,7 +101,7 @@ def main(cfg):
         for im in image_data[image_data.labels == label].Path:
             print(im)
             img = Image.open(im)
-            img_tensor = convert_tensor(img).unsqueeze(0).repeat(10,1,1,1)
+            img_tensor = convert_tensor(img).unsqueeze(0).repeat(10, 1, 1, 1)
             out = aug_list(img_tensor)
             for i in range(10):
                 image = out[i].numpy().transpose((1, 2, 0))
