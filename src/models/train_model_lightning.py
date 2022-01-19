@@ -42,7 +42,7 @@ def main(cfg):
                 "gsutil",
                 "cp",
                 os.path.join(
-                    hydra.utils.get_original_cwd(), f"models/checkpoint{date_time}.pth"
+                    hydra.utils.get_original_cwd(), f"models/checkpoint_{date_time}.pth"
                 ),
                 os.path.join(cfg.cloud.path, f"model_{date_time}.pt"),
             ]
