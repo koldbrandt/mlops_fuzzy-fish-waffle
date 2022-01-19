@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Validating:   0%|                                                                               | 0/14 [00:00<?, ?it/s]
+
+Traceback (most recent call last):
+  File "C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\src\models\train_model_lightning.py", line 31, in main
+    "{cwd}/models/checkpoint_{date}.pth".format(
+KeyError: 'date'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

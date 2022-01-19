@@ -1,0 +1,19 @@
+
+
+
+
+Validating:  64%|█████████████████████████████████████████████▋                         | 9/14 [00:05<00:01,  3.24it/s]
+
+Traceback (most recent call last):
+  File "C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\src\models\train_model_lightning.py", line 38, in main
+    subprocess.check_call(
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\subprocess.py", line 368, in check_call
+    retcode = call(*popenargs, **kwargs)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\subprocess.py", line 1420, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

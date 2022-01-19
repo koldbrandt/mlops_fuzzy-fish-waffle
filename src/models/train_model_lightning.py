@@ -4,6 +4,7 @@ from pytorch_lightning import loggers
 from model_lightning import LightningModel
 from src.data import get_dataset
 import hydra
+from datetime import datetime
 
 @hydra.main(config_name="training_conf.yaml", config_path="../../conf")
 def main(cfg):
@@ -12,9 +13,23 @@ def main(cfg):
     
     model = LightningModel(10)
     wd_logger = loggers.WandbLogger(name="test", entity ="fuzzy-fish-waffle")
-    trainer = pl.Trainer(logger=wd_logger, max_epochs=5)
+    trainer = pl.Trainer(logger=wd_logger, max_epochs=2)
 
     trainer.fit(model, trainloader, testloader)
+
+    # plt.show()
+    checkpoint = {
+        "state_dict": model.state_dict(),
+    }
+
+    date_time=datetime.now().strftime("%m%d%Y%H%M%S")
+
+    torch.save(
+        checkpoint,
+        "{cwd}/models/checkpoint_{date_time}.pth".format(
+            cwd=hydra.utils.get_original_cwd(), date_time=date_time
+        ),
+    )
 
     # inputs, _ = next(iter(testloader))
     # inputs_ood = corruption_function(inputs)

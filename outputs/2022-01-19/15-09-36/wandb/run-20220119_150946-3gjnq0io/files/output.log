@@ -1,0 +1,15 @@
+
+
+
+
+
+
+gs://bucket-for-fishes/models/model_01192022151022.pt
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\src\models\train_model_lightning.py", line 40, in main
+    subprocess.check_call(
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\subprocess.py", line 373, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['powershell', '-command', 'gsutil', 'cp', 'C:\\Users\\bgran\\OneDrive - Danmarks Tekniske Universitet\\studies\\Machine Learning Operations\\mlops_fuzzy-fish-waffle\\models\\checkpoint_01192022151022.pth', 'gs://bucket-for-fishes/models/model_01192022151022.pt']' returned non-zero exit status 1.
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

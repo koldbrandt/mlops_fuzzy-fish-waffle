@@ -1,0 +1,728 @@
+2022-01-19 14:51:37,461 INFO    MainThread:22160 [internal.py:wandb_internal():87] W&B internal server running at pid: 22160, started at: 2022-01-19 14:51:37.461666
+2022-01-19 14:51:37,463 INFO    WriterThread:22160 [datastore.py:open_for_write():77] open: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\run-ymvbxjqu.wandb
+2022-01-19 14:51:37,463 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: check_version
+2022-01-19 14:51:37,466 DEBUG   SenderThread:22160 [sender.py:send():234] send: header
+2022-01-19 14:51:37,466 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: check_version
+2022-01-19 14:51:37,541 DEBUG   SenderThread:22160 [sender.py:send():234] send: run
+2022-01-19 14:51:37,620 INFO    SenderThread:22160 [sender.py:_maybe_setup_resume():484] checking resume status for fuzzy-fish-waffle/mlops_fuzzy-fish-waffle-src_models/ymvbxjqu
+2022-01-19 14:51:38,360 INFO    SenderThread:22160 [dir_watcher.py:__init__():169] watching files in: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files
+2022-01-19 14:51:38,360 INFO    SenderThread:22160 [sender.py:_start_run_threads():804] run started: ymvbxjqu with start time 1642600296
+2022-01-19 14:51:38,360 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:38,361 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:38,361 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: run_start
+2022-01-19 14:51:38,387 DEBUG   HandlerThread:22160 [meta.py:__init__():40] meta init
+2022-01-19 14:51:38,388 DEBUG   HandlerThread:22160 [meta.py:__init__():54] meta init done
+2022-01-19 14:51:38,388 DEBUG   HandlerThread:22160 [meta.py:probe():214] probe
+2022-01-19 14:51:38,407 DEBUG   HandlerThread:22160 [meta.py:_setup_git():204] setup git
+2022-01-19 14:51:38,545 DEBUG   HandlerThread:22160 [meta.py:_setup_git():211] setup git done
+2022-01-19 14:51:38,545 DEBUG   HandlerThread:22160 [meta.py:_save_pip():58] save pip
+2022-01-19 14:51:38,546 DEBUG   HandlerThread:22160 [meta.py:_save_pip():72] save pip done
+2022-01-19 14:51:38,546 DEBUG   HandlerThread:22160 [meta.py:_save_conda():79] save conda
+2022-01-19 14:51:38,552 ERROR   HandlerThread:22160 [meta.py:_save_conda():88] Error saving conda packages
+Traceback (most recent call last):
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\internal\meta.py", line 84, in _save_conda
+    subprocess.call(
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\subprocess.py", line 349, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\subprocess.py", line 951, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\subprocess.py", line 1420, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2022-01-19 14:51:38,554 DEBUG   HandlerThread:22160 [meta.py:_save_conda():89] save conda done
+2022-01-19 14:51:38,554 DEBUG   HandlerThread:22160 [meta.py:probe():252] probe done
+2022-01-19 14:51:38,861 DEBUG   SenderThread:22160 [sender.py:send():234] send: files
+2022-01-19 14:51:38,862 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-metadata.json with policy now
+2022-01-19 14:51:38,862 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: stop_status
+2022-01-19 14:51:38,864 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: stop_status
+2022-01-19 14:51:39,057 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,058 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,058 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:39,058 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,058 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,058 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,058 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:39,059 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:39,061 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:39,062 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,062 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,062 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:39,062 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:39,062 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:39,063 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:39,227 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,228 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,228 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:39,229 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:39,229 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:39,231 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:39,371 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-metadata.json
+2022-01-19 14:51:39,372 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\output.log
+2022-01-19 14:51:39,373 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\requirements.txt
+2022-01-19 14:51:39,373 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\conda-environment.yaml
+2022-01-19 14:51:39,374 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_created():217] file/dir created: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:39,413 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,414 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,414 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:39,415 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:39,415 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:39,417 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:39,452 INFO    Thread-19 :22160 [upload_job.py:push():137] Uploaded file C:\Users\bgran\AppData\Local\Temp\tmp8ig_pcqhwandb\t5k37bj6-wandb-metadata.json
+2022-01-19 14:51:39,592 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,592 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,592 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:39,593 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:39,594 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:39,595 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:39,767 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,767 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,767 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:39,768 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:39,768 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:39,770 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:39,942 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,943 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:39,943 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:39,944 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:39,944 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:39,946 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:40,124 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,124 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,124 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:40,126 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:40,126 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:40,127 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:40,296 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,297 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,297 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:40,298 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:40,298 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:40,300 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:40,370 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:40,478 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,478 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,478 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:40,479 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:40,479 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:40,483 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:40,655 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,656 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,656 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:40,657 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:40,657 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:40,659 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:40,835 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,835 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:40,836 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:40,837 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:40,837 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:40,839 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:41,022 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,022 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,023 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:41,024 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:41,024 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:41,026 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:41,201 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,202 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,202 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:41,204 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:41,204 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:41,206 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:41,380 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:41,382 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,383 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,383 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:41,384 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:41,384 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:41,386 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:41,567 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,567 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,567 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:41,568 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:41,569 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:41,570 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:41,744 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,745 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,745 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:41,746 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:41,746 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:41,748 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:41,932 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,933 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:41,933 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:41,934 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:41,934 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:41,936 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:42,117 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,118 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,118 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:42,119 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:42,120 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:42,122 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:42,294 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,295 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,295 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:42,296 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:42,296 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:42,297 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:42,395 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:42,473 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,473 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,473 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:42,474 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:42,475 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:42,476 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:42,654 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,654 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,654 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:42,656 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:42,656 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:42,659 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:42,837 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,837 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:42,838 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:42,839 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:42,839 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:42,840 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:43,061 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,061 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,062 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:43,063 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:43,063 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:43,065 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:43,260 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,261 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,261 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:43,262 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:43,262 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:43,266 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:43,398 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:43,460 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,461 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,461 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:43,462 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:43,462 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:43,464 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:43,644 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,644 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,645 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:43,646 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:43,646 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:43,647 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:43,824 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,825 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:43,825 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:43,826 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:43,826 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:43,828 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:44,001 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,001 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,001 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:44,002 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:44,003 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:44,004 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:44,199 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,199 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,199 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:44,201 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:44,201 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:44,203 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:44,410 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:44,414 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,415 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,415 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:44,416 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:44,417 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:44,418 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:44,643 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,643 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,643 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:44,644 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:44,645 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:44,646 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:44,959 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,961 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:44,961 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:44,962 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:44,962 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:44,969 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:45,239 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:45,239 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:45,240 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:45,241 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:45,241 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:45,242 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:45,414 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:45,472 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:45,473 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:45,473 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:45,474 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:45,475 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:45,476 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:45,711 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:45,711 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:45,711 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:45,713 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:45,713 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:45,715 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:45,952 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:45,953 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:45,953 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:45,954 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:45,955 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:45,956 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:46,170 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:46,171 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:46,171 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:46,173 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:46,173 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:46,175 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:46,399 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:46,400 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:46,400 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:46,401 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:46,402 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:46,403 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:46,424 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:46,678 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:46,678 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:46,679 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:46,680 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:46,680 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:46,682 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:46,935 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:46,935 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:46,936 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:46,937 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:46,937 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:46,939 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:47,173 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:47,174 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:47,174 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:47,175 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:47,175 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:47,178 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:47,427 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:47,808 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:47,809 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:47,809 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:47,810 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:47,810 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:47,812 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:48,439 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:49,445 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\output.log
+2022-01-19 14:51:54,061 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: stop_status
+2022-01-19 14:51:54,061 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: stop_status
+2022-01-19 14:51:55,497 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\output.log
+2022-01-19 14:51:55,573 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:55,574 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:55,574 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:51:55,575 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:55,575 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:51:55,575 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:51:55,575 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:51:55,576 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:51:56,507 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:51:57,522 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\output.log
+2022-01-19 14:52:00,299 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:00,299 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:00,299 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:00,300 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:00,301 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:00,304 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:00,482 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:00,483 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:00,483 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:00,484 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:00,485 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:00,486 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:00,551 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:00,683 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:00,683 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:00,683 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:00,685 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:00,685 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:00,687 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:00,879 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:00,879 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:00,879 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:00,881 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:00,881 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:00,883 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:01,071 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,071 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,072 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:01,073 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:01,073 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:01,075 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:01,254 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,255 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,255 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:01,256 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:01,257 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:01,258 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:01,452 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,453 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,453 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:01,454 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:01,455 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:01,457 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:01,565 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:01,576 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,576 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,576 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:01,577 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,577 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:01,578 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:01,579 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:01,637 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,638 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,638 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:01,639 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:01,640 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:01,641 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:01,824 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,824 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:01,825 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:01,826 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:01,827 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:01,828 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:02,029 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,030 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,030 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:02,032 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:02,032 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:02,034 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:02,262 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,263 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,263 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:02,265 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:02,266 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:02,268 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:02,502 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,503 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,505 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:02,505 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:02,505 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:02,510 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:02,572 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:02,733 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,735 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,735 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:02,737 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:02,738 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:02,740 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:02,967 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,967 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:02,967 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:02,969 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:02,971 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:02,973 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:03,213 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:03,214 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:03,214 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:03,216 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:03,216 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:03,218 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:03,466 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:03,466 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:03,466 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:03,468 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:03,469 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:03,474 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:03,584 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:03,716 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:03,716 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:03,716 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:03,718 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:03,719 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:03,722 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:03,964 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:03,964 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:03,965 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:03,966 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:03,967 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:03,971 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:04,241 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:04,241 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:04,242 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:04,243 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:04,244 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:04,246 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:04,490 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:04,490 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:04,491 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:04,493 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:04,494 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:04,496 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:04,592 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:04,725 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:04,725 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:04,726 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:04,727 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:04,728 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:04,732 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:04,960 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:04,961 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:04,961 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:04,962 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:04,963 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:04,964 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:05,223 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:05,224 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:05,224 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:05,226 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:05,227 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:05,229 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:05,512 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:05,512 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:05,512 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:05,514 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:05,515 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:05,517 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:05,607 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:05,796 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:05,797 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:05,797 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:05,799 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:05,800 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:05,801 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:06,041 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:06,042 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:06,042 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:06,044 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:06,044 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:06,046 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:06,308 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:06,309 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:06,310 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:06,311 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:06,312 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:06,314 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:06,583 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:06,584 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:06,584 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:06,586 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:06,587 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:06,589 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:06,613 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:06,860 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:06,861 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:06,861 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:06,863 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:06,864 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:06,868 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:07,107 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:07,108 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:07,108 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:07,110 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:07,111 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:07,112 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:07,346 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:07,347 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:07,347 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:07,349 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:07,350 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:07,352 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:07,584 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:07,622 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:07,842 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:07,842 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:07,842 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:07,843 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:07,844 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:07,845 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:07,845 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:07,845 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:07,845 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:07,846 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:07,848 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:08,022 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,023 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,023 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:08,024 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:08,026 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:08,027 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:08,229 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,230 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,230 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:08,232 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:08,232 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:08,234 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:08,449 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,450 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,450 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:08,452 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:08,452 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:08,455 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:08,630 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\config.yaml
+2022-01-19 14:52:08,630 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:08,656 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,656 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,657 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:08,658 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:08,659 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:08,660 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:08,859 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,859 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:08,860 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:08,861 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:08,862 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:08,863 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:09,057 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:09,058 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:09,058 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:09,059 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:09,060 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:09,062 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:09,249 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:09,249 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:09,249 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:09,251 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:09,252 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:09,253 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:09,257 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: stop_status
+2022-01-19 14:52:09,258 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: stop_status
+2022-01-19 14:52:09,565 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:09,566 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:09,566 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:09,566 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:09,566 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:09,568 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:09,641 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:09,642 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:09,642 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:09,643 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:09,644 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:09,644 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:09,645 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:10,029 DEBUG   SenderThread:22160 [sender.py:send():234] send: stats
+2022-01-19 14:52:10,203 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:10,203 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:10,204 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:10,205 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:10,206 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:10,207 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:10,655 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:11,660 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\output.log
+2022-01-19 14:52:16,187 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:16,188 DEBUG   SenderThread:22160 [sender.py:send():234] send: metric
+2022-01-19 14:52:16,188 WARNING SenderThread:22160 [sender.py:send_metric():897] Seen metric with glob (shouldnt happen)
+2022-01-19 14:52:16,189 DEBUG   SenderThread:22160 [sender.py:send():234] send: history
+2022-01-19 14:52:16,189 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:16,191 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:16,700 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:17,711 INFO    Thread-14 :22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\output.log
+2022-01-19 14:52:18,106 DEBUG   SenderThread:22160 [sender.py:send():234] send: telemetry
+2022-01-19 14:52:18,106 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:18,106 DEBUG   SenderThread:22160 [sender.py:send():234] send: exit
+2022-01-19 14:52:18,107 INFO    SenderThread:22160 [sender.py:send_exit():366] handling exit code: 1
+2022-01-19 14:52:18,107 INFO    SenderThread:22160 [sender.py:send_exit():368] handling runtime: 39
+2022-01-19 14:52:18,107 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:18,108 INFO    SenderThread:22160 [sender.py:send_exit():374] send defer
+2022-01-19 14:52:18,108 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:18,108 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:18,108 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 0
+2022-01-19 14:52:18,108 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:18,109 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 0
+2022-01-19 14:52:18,109 INFO    SenderThread:22160 [sender.py:transition_state():387] send defer: 1
+2022-01-19 14:52:18,109 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:18,109 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 1
+2022-01-19 14:52:18,235 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:18,235 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:18,235 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 1
+2022-01-19 14:52:18,235 INFO    SenderThread:22160 [sender.py:transition_state():387] send defer: 2
+2022-01-19 14:52:18,235 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:18,236 DEBUG   SenderThread:22160 [sender.py:send():234] send: stats
+2022-01-19 14:52:18,236 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:18,237 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 2
+2022-01-19 14:52:18,237 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:18,238 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 2
+2022-01-19 14:52:18,238 INFO    SenderThread:22160 [sender.py:transition_state():387] send defer: 3
+2022-01-19 14:52:18,238 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:18,239 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 3
+2022-01-19 14:52:18,239 DEBUG   SenderThread:22160 [sender.py:send():234] send: summary
+2022-01-19 14:52:18,240 INFO    SenderThread:22160 [sender.py:_save_file():939] saving file wandb-summary.json with policy end
+2022-01-19 14:52:18,241 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:18,241 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 3
+2022-01-19 14:52:18,241 INFO    SenderThread:22160 [sender.py:transition_state():387] send defer: 4
+2022-01-19 14:52:18,241 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:18,241 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 4
+2022-01-19 14:52:18,241 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:18,241 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 4
+2022-01-19 14:52:18,350 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:18,471 INFO    SenderThread:22160 [sender.py:transition_state():387] send defer: 5
+2022-01-19 14:52:18,471 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:18,472 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:18,472 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 5
+2022-01-19 14:52:18,472 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:18,472 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 5
+2022-01-19 14:52:18,472 INFO    SenderThread:22160 [dir_watcher.py:finish():283] shutting down directory watcher
+2022-01-19 14:52:18,583 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:18,724 INFO    SenderThread:22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\config.yaml
+2022-01-19 14:52:18,725 INFO    SenderThread:22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:18,725 INFO    SenderThread:22160 [dir_watcher.py:_on_file_modified():230] file/dir modified: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\output.log
+2022-01-19 14:52:18,725 INFO    SenderThread:22160 [dir_watcher.py:finish():313] scan: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files
+2022-01-19 14:52:18,725 INFO    SenderThread:22160 [dir_watcher.py:finish():327] scan save: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\conda-environment.yaml conda-environment.yaml
+2022-01-19 14:52:18,726 INFO    SenderThread:22160 [dir_watcher.py:finish():327] scan save: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\config.yaml config.yaml
+2022-01-19 14:52:18,726 INFO    SenderThread:22160 [dir_watcher.py:finish():327] scan save: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\output.log output.log
+2022-01-19 14:52:18,727 INFO    SenderThread:22160 [dir_watcher.py:finish():327] scan save: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\requirements.txt requirements.txt
+2022-01-19 14:52:18,729 INFO    SenderThread:22160 [dir_watcher.py:finish():327] scan save: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-metadata.json wandb-metadata.json
+2022-01-19 14:52:18,732 INFO    SenderThread:22160 [dir_watcher.py:finish():327] scan save: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json wandb-summary.json
+2022-01-19 14:52:18,732 INFO    SenderThread:22160 [sender.py:transition_state():387] send defer: 6
+2022-01-19 14:52:18,734 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:18,735 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:18,735 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 6
+2022-01-19 14:52:18,735 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:18,735 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 6
+2022-01-19 14:52:18,735 INFO    SenderThread:22160 [file_pusher.py:finish():177] shutting down file pusher
+2022-01-19 14:52:18,844 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:18,845 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:18,953 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:18,955 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:19,059 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:19,059 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:19,168 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:19,168 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:19,280 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:19,280 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:19,298 INFO    Thread-20 :22160 [upload_job.py:push():137] Uploaded file C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\config.yaml
+2022-01-19 14:52:19,306 INFO    Thread-23 :22160 [upload_job.py:push():137] Uploaded file C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\wandb-summary.json
+2022-01-19 14:52:19,316 INFO    Thread-21 :22160 [upload_job.py:push():137] Uploaded file C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\output.log
+2022-01-19 14:52:19,323 INFO    Thread-22 :22160 [upload_job.py:push():137] Uploaded file C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\files\requirements.txt
+2022-01-19 14:52:19,388 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:19,388 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:19,501 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:19,501 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:19,531 INFO    Thread-13 :22160 [sender.py:transition_state():387] send defer: 7
+2022-01-19 14:52:19,531 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:19,531 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 7
+2022-01-19 14:52:19,531 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:19,531 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 7
+2022-01-19 14:52:19,610 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:20,213 INFO    SenderThread:22160 [sender.py:transition_state():387] send defer: 8
+2022-01-19 14:52:20,213 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:20,213 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:20,213 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 8
+2022-01-19 14:52:20,213 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:20,214 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 8
+2022-01-19 14:52:20,214 INFO    SenderThread:22160 [sender.py:transition_state():387] send defer: 9
+2022-01-19 14:52:20,214 DEBUG   SenderThread:22160 [sender.py:send():234] send: final
+2022-01-19 14:52:20,214 DEBUG   SenderThread:22160 [sender.py:send():234] send: footer
+2022-01-19 14:52:20,214 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: defer
+2022-01-19 14:52:20,214 INFO    HandlerThread:22160 [handler.py:handle_request_defer():147] handle defer: 9
+2022-01-19 14:52:20,215 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: defer
+2022-01-19 14:52:20,215 INFO    SenderThread:22160 [sender.py:send_request_defer():383] handle sender defer: 9
+2022-01-19 14:52:20,330 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: poll_exit
+2022-01-19 14:52:20,330 DEBUG   SenderThread:22160 [sender.py:send_request():248] send_request: poll_exit
+2022-01-19 14:52:20,330 INFO    SenderThread:22160 [file_pusher.py:join():182] waiting for file pusher
+2022-01-19 14:52:20,728 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: get_summary
+2022-01-19 14:52:20,729 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: sampled_history
+2022-01-19 14:52:20,730 DEBUG   HandlerThread:22160 [handler.py:handle_request():130] handle_request: shutdown
+2022-01-19 14:52:20,730 INFO    HandlerThread:22160 [handler.py:finish():731] shutting down handler
+2022-01-19 14:52:21,218 INFO    WriterThread:22160 [datastore.py:close():281] close: C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\outputs\2022-01-19\14-51-25\wandb\run-20220119_145135-ymvbxjqu\run-ymvbxjqu.wandb
+2022-01-19 14:52:21,734 INFO    SenderThread:22160 [sender.py:finish():1070] shutting down sender
+2022-01-19 14:52:21,735 INFO    SenderThread:22160 [file_pusher.py:finish():177] shutting down file pusher
+2022-01-19 14:52:21,735 INFO    SenderThread:22160 [file_pusher.py:join():182] waiting for file pusher
+2022-01-19 14:52:21,737 INFO    MainThread:22160 [internal.py:handle_exit():77] Internal process exited
