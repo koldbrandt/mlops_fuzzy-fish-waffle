@@ -82,7 +82,7 @@ def main(cfg: OmegaConf):
         kornia.augmentation.ColorJitter(0.2, 0.0, 0.0, 0.0, p=1.0),
         kornia.augmentation.RandomAffine(360, p=1.0),
         kornia.augmentation.RandomPerspective(0.1, p=0.8),
-        kornia.augmentation.RandomHorizontalFlip(p=0.5)
+        kornia.augmentation.RandomHorizontalFlip(p=0.5),
     )
 
     for label in uniqLabels:

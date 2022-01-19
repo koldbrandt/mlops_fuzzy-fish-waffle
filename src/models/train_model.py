@@ -15,7 +15,6 @@ import wandb
 wandb.init(project="mlops-fuzzy-fish", entity="wojty")
 
 
-
 @hydra.main(config_name="training_conf.yaml", config_path="../../conf")
 def main(cfg):
     """Training loop"""
@@ -95,7 +94,12 @@ def main(cfg):
     checkpoint = {
         "state_dict": model.state_dict(),
     }
-    torch.save(checkpoint, "{cwd}/models/checkpoint-{date}.pth".format(cwd=hydra.utils.get_original_cwd(), date = date.today()))
+    torch.save(
+        checkpoint,
+        "{cwd}/models/checkpoint-{date}.pth".format(
+            cwd=hydra.utils.get_original_cwd(), date=date.today()
+        ),
+    )
 
     if cfg.cloud.save:
 

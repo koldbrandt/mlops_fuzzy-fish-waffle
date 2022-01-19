@@ -22,9 +22,10 @@ def get_params(cfg: OmegaConf):
     TEST_SIZE = cfg.hyperparameters.TEST_SIZE
     return input_filepath, TRAIN_BATCHSiZE, TEST_SIZE
 
+
 def main(cfg: OmegaConf):
     """
-    Runs data processing scripts to turn processed data from 
+    Runs data processing scripts to turn processed data from
     (input_filepath : ../processed)
     into dataloaders that will get returned.
     """

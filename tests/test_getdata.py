@@ -23,7 +23,7 @@ from src.data.get_dataset import main
 
 
 class TestClass:
-    """ Tests on get_dataset """
+    """Tests on get_dataset"""
 
     def test_InputPath_Exists(self):
         """

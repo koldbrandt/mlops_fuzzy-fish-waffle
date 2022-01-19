@@ -28,7 +28,8 @@ class ConvNet(torch.nn.Module):
             nn.Dropout(0.5),
             #
             nn.Linear(128, num_classes),
-            )
+        )
+
     def forward(self, x):
         logits = self.layers(x)
         return logits
