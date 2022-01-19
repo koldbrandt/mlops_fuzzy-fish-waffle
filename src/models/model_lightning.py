@@ -6,6 +6,7 @@ import pytorch_lightning as pl
 
 # wandb.init(project="mlops-project", entity="fuzzy-fish-waffle")
 
+
 class LightningModel(pl.LightningModule):
     def __init__(self, num_classes: int) -> None:
         """Builds a feedforward network with arbitrary hidden layers.
@@ -37,7 +38,7 @@ class LightningModel(pl.LightningModule):
             nn.BatchNorm1d(128),
             nn.LeakyReLU(0.1, inplace=True),
             nn.Dropout(0.5),
-            nn.Linear(128, self.num_classes)
+            nn.Linear(128, self.num_classes),
         )
 
     def forward(self, x):

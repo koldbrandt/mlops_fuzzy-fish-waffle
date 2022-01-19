@@ -9,8 +9,12 @@ from model import Network
 from torch import nn, optim
 
 import src.data.get_dataset
-from datetime import date
-# import wandb
+
+from datetime import datetime
+import wandb
+
+wandb.init(project="mlops-project", entity="fuzzy-fish-waffle")
+
 
 
 @hydra.main(config_name="training_conf.yaml", config_path="../../conf")
@@ -92,16 +96,26 @@ def main(cfg):
     checkpoint = {
         "state_dict": model.state_dict(),
     }
-    torch.save(checkpoint, "{cwd}/models/checkpoint-{date}.pth".format(cwd=hydra.utils.get_original_cwd(), date = date.today()))
 
+
+    date_time = datetime.now().strftime("%m%d%Y%H%M%S")
+
+    torch.save(
+        checkpoint,
+        "{cwd}/models/checkpoint_{date_time}.pth".format(
+            cwd=hydra.utils.get_original_cwd(), date_time=date_time
+        ),
+    )
     if cfg.cloud.save:
-
         subprocess.check_call(
             [
                 "gsutil",
                 "cp",
-                os.path.join(hydra.utils.get_original_cwd(), "models/checkpoint.pth"),
-                os.path.join(cfg.cloud.path, "model.pt"),
+
+                os.path.join(
+                    hydra.utils.get_original_cwd(), f"models/checkpoint{date_time}.pth"
+                ),
+                os.path.join(cfg.cloud.path, f"model_{date_time}.pt"),
             ]
         )
 
