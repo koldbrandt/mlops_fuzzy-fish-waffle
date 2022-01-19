@@ -1,0 +1,40 @@
+Available Classes: ['Gilt Head Bream', 'Red Mullet', 'Shrimp', 'Striped Red Mullet', 'Horse Mackerel', 'Sea Bass', 'Black Sea Sprat', 'Red Sea Bream', 'Trout']
+{'Gilt Head Bream': 0, 'Red Mullet': 1, 'Shrimp': 2, 'Striped Red Mullet': 3, 'Horse Mackerel': 4, 'Sea Bass': 5, 'Black Sea Sprat': 6, 'Red Sea Bream': 7, 'Trout': 8}
+Validation sanity check:   0%|                                                                   | 0/2 [00:00<?, ?it/s]
+C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\pytorch_lightning\trainer\trainer.py:1584: UserWarning: GPU available but not used. Set the gpus flag in your trainer `Trainer(gpus=1)` or script `--gpus=1`.
+  rank_zero_warn(
+C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\pytorch_lightning\trainer\data_loading.py:132: UserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 16 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Exception in thread NetStatThr:
+Traceback (most recent call last):
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\wandb_run.py", line 152, in check_network_status
+    status_response = self._interface.communicate_network_status()
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\interface\interface.py", line 125, in communicate_network_status
+    resp = self._communicate_network_status(status)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 388, in _communicate_network_status
+    resp = self._communicate(req, local=True)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 213, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 218, in _communicate_async
+    raise Exception("The wandb backend process has shutdown")
+Exception: The wandb backend process has shutdown
+Exception in thread ChkStopThr:
+Traceback (most recent call last):
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\threading.py", line 973, in _bootstrap_inner
+    self.run()
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\threading.py", line 910, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\wandb_run.py", line 170, in check_status
+    status_response = self._interface.communicate_stop_status()
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\interface\interface.py", line 114, in communicate_stop_status
+    resp = self._communicate_stop_status(status)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 378, in _communicate_stop_status
+    resp = self._communicate(req, local=True)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 213, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 218, in _communicate_async
+    raise Exception("The wandb backend process has shutdown")
