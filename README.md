@@ -15,8 +15,8 @@ The model will have 3 convolutional layers with batchnormalization and relu will
 - [x] Fill out the `make_dataset.py` file such that it downloads whatever data you need and
 - [x] Add a model file and a training script and get that running
 - [x] Remember to fill out the `requirements.txt` file with whatever dependencies that you are using
-- [ ] Remember to comply with good coding practices (`pep8`) while doing the project
-- [ ] Do a bit of code typing and remember to document essential parts of your code
+- [x] Remember to comply with good coding practices (`pep8`) while doing the project
+- [x] Do a bit of code typing and remember to document essential parts of your code
 - [x] Setup version control for your data or part of your data
 - [x] Construct one or multiple docker files for your code
 - [x] Build the docker files locally and make sure they work as intended
@@ -28,9 +28,9 @@ The model will have 3 convolutional layers with batchnormalization and relu will
 
 ### Week 2
 
-- [ ] Write unit tests related to the data part of your code
-- [ ] Write unit tests related to model construction
-- [ ] Calculate the coverage.
+- [x] Write unit tests related to the data part of your code
+- [x] Write unit tests related to model construction
+- [x] Calculate the coverage.
 - [x] Get some continuous integration running on the github repository
 - [X] (optional) Create a new project on `gcp` and invite all group members to it
 - [X] Create a data storage on `gcp` for you data

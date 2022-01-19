@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from dotenv import find_dotenv, load_dotenv
 from kornia.augmentation import ImageSequential
+from omegaconf import OmegaConf
 from PIL import Image
 from torchvision import transforms
 
@@ -40,7 +41,7 @@ def getImagesAndLabels(input_filepath: Path):
     return non_segmented_images, lables, uniqlabels, int_classes
 
 
-def get_params(cfg):
+def get_params(cfg: OmegaConf):
     """
     Returns all parameters in config file
     """
@@ -52,7 +53,7 @@ def get_params(cfg):
 
 
 @hydra.main(config_name="dataset_conf.yaml", config_path="../../conf")
-def main(cfg):
+def main(cfg: OmegaConf):
     """Runs data processing scripts to turn raw data from (input_filepath : ../raw)
     into cleaned data ready to be analyzed (saved in ../processed).
     """
@@ -79,16 +80,9 @@ def main(cfg):
     aug_list = ImageSequential(
         #     kornia.color.BgrToRgb(),
         kornia.augmentation.ColorJitter(0.2, 0.0, 0.0, 0.0, p=1.0),
-        #     kornia.filters.MedianBlur((3, 3)),
         kornia.augmentation.RandomAffine(360, p=1.0),
-        #     kornia.augmentation.RandomGaussianNoise(mean=0., std=1., p=0.5),
         kornia.augmentation.RandomPerspective(0.1, p=0.8),
         kornia.augmentation.RandomHorizontalFlip(p=0.5)
-        #     kornia.enhance.Invert(),
-        #     kornia.augmentation.RandomMixUp(p=1.0),
-        #     return_transform=True,
-        #     same_on_batch=True
-        #     random_apply=10
     )
 
     for label in uniqLabels:
