@@ -12,7 +12,7 @@ import src.data.get_dataset
 from datetime import date
 import wandb
 
-wandb.init(project="mlops-fuzzy-fish", entity="wojty")
+wandb.init(project="mlops-project", entity="fuzzy-fish-waffle")
 
 
 @hydra.main(config_name="training_conf.yaml", config_path="../../conf")
