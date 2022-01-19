@@ -11,5 +11,5 @@ paths:
   input_filepath: ${hydra:runtime.cwd}/data/processed/
 
 cloud:
-  save: True
+  save: False
   path: gs://bucket-for-fishes/models
