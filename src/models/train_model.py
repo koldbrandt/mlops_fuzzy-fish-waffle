@@ -23,7 +23,7 @@ def main(cfg):
     model = Network(cfg.hyperparameters.num_classes)
 
     # Magic
-    wandb.watch(model, log_freq=cfg.print_every)
+    wandb.watch(model, log_freq=cfg.hyperparameters.print_every)
     trainloader, _, testloader = src.data.get_dataset.main(cfg)
 
     optimizer = optim.SGD(
