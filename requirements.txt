@@ -18,3 +18,4 @@ matplotlib
 sklearn
 pandas
 wandb
+pytorch-lightning
