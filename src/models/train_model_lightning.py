@@ -16,8 +16,10 @@ def main(cfg):
 
     model = LightningModel(10)
 
-    wd_logger = loggers.WandbLogger(name="test", entity ="fuzzy-fish-waffle")
-    trainer = pl.Trainer(logger=wd_logger, max_epochs=2)
+    wd_logger = loggers.WandbLogger(
+        name="test", entity="fuzzy-fish-waffle", project="mlops-project"
+    )
+    trainer = pl.Trainer(logger=wd_logger, max_epochs=cfg.hyperparameters.epochs)
 
     trainer.fit(model, trainloader, testloader)
 
@@ -26,7 +28,7 @@ def main(cfg):
         "state_dict": model.state_dict(),
     }
 
-    date_time=datetime.now().strftime("%m%d%Y%H%M%S")
+    date_time = datetime.now().strftime("%m%d%Y%H%M%S")
 
     torch.save(
         checkpoint,
@@ -51,18 +53,17 @@ def main(cfg):
 
     torchdrift.utils.fit(trainloader, feature_extractor, drift_detector)
 
-    drift_detection_model = torch.nn.Sequential(
-        feature_extractor,
-        drift_detector
-    )
+    drift_detection_model = torch.nn.Sequential(feature_extractor, drift_detector)
 
     features = feature_extractor(inputs)
     score = drift_detector(features)
     p_val = drift_detector.compute_p_value(features)
-    print(f'score: {score}, p_val: {p_val}')
+    print(f"score: {score}, p_val: {p_val}")
+
 
 def corruption_function(x: torch.Tensor):
     return torchdrift.data.functional.gaussian_blur(x, severity=2)
+
 
 if __name__ == "__main__":
     main()
