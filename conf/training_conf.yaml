@@ -9,3 +9,7 @@ hyperparameters:
 
 paths: 
   input_filepath: ${hydra:runtime.cwd}/data/processed/
+
+cloud:
+  save: True
+  path: gs://bucket-for-fishes/models

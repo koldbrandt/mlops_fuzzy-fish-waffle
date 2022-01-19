@@ -1,10 +1,12 @@
 import torch
 import torch.nn as nn
 
+
 # Architecture
 class Network(torch.nn.Module):
     def __init__(self, num_classes):
         super().__init__()
+
         self.num_classes = num_classes
         self.layers = torch.nn.Sequential(
             # 1st Convolution
@@ -25,11 +27,14 @@ class Network(torch.nn.Module):
             nn.BatchNorm1d(128),
             nn.LeakyReLU(0.1, inplace=True),
             nn.Dropout(0.5),
-            #
-            nn.Linear(128, num_classes),
+            nn.Linear(128, num_classes)
         )
 
     def forward(self, x):
+        # Image has to have shape 64 x 64
+        if not x.shape[2:4] == torch.Size([64, 64]):
+            raise ValueError("Expected each image to have shape 64 x 64")
+
         logits = self.layers(x)
         return logits
 
@@ -42,7 +47,7 @@ def validation(model, testloader, criterion):
         output = model.forward(images)
         test_loss += criterion(output, labels).item()
 
-        ## Calculating the accuracy
+        # Calculating the accuracy
         # Model's output is log-softmax, take exponential to get the probabilities
         ps = torch.exp(output)
         # Class with highest probability is our predicted class, compare with true label

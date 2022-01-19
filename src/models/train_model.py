@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 import hydra
 import matplotlib.pyplot as plt
@@ -6,6 +7,7 @@ import model as md
 import torch
 from model import Network
 from torch import nn, optim
+
 import src.data.get_dataset
 from datetime import date
 # import wandb
@@ -22,7 +24,11 @@ def main(cfg):
     # wandb.watch(model, log_freq=cfg.print_every)
     trainloader, _, testloader = src.data.get_dataset.main(cfg)
 
-    optimizer = optim.SGD(model.parameters(), lr=cfg.hyperparameters.lr, momentum=cfg.hyperparameters.momentum)
+    optimizer = optim.SGD(
+        model.parameters(),
+        lr=cfg.hyperparameters.lr,
+        momentum=cfg.hyperparameters.momentum,
+    )
     criterion = nn.CrossEntropyLoss()
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, factor=0.1, mode="max", verbose=True
@@ -35,6 +41,7 @@ def main(cfg):
     timestamp = []
     epochs = cfg.hyperparameters.epochs
     print_every = cfg.hyperparameters.print_every
+
     for e in range(epochs):
         # Model in training mode, dropout is on
         model.train()
@@ -75,16 +82,28 @@ def main(cfg):
                 # Make sure dropout and grads are on for training
                 model.train()
         scheduler.step(minibatch_loss_list[-1])
+
     plt.plot(timestamp, losses)
     plt.xlabel("step")
     plt.ylabel("loss")
-    plt.savefig(hydra.utils.get_original_cwd() +"/reports/figures/training.png")
+    plt.savefig(hydra.utils.get_original_cwd() + "/reports/figures/training.png")
 
     # plt.show()
     checkpoint = {
         "state_dict": model.state_dict(),
     }
     torch.save(checkpoint, "{cwd}/models/checkpoint-{date}.pth".format(cwd=hydra.utils.get_original_cwd(), date = date.today()))
+
+    if cfg.cloud.save:
+
+        subprocess.check_call(
+            [
+                "gsutil",
+                "cp",
+                os.path.join(hydra.utils.get_original_cwd(), "models/checkpoint.pth"),
+                os.path.join(cfg.cloud.path, "model.pt"),
+            ]
+        )
 
 
 if __name__ == "__main__":
