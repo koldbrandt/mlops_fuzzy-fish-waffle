@@ -7,7 +7,7 @@ import torch
 from model import Network
 from torch import nn, optim
 import src.data.get_dataset
-
+from datetime import date
 # import wandb
 
 
@@ -84,7 +84,7 @@ def main(cfg):
     checkpoint = {
         "state_dict": model.state_dict(),
     }
-    torch.save(checkpoint, hydra.utils.get_original_cwd() + "/models/checkpoint.pth")
+    torch.save(checkpoint, "{cwd}/models/checkpoint-{date}.pth".format(cwd=hydra.utils.get_original_cwd(), date = date.today()))
 
 
 if __name__ == "__main__":
