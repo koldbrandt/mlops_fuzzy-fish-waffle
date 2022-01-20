@@ -12,8 +12,7 @@ import src.data.get_dataset
 
 from datetime import datetime
 import wandb
-
-wandb.init(project="mlops-project", entity="fuzzy-fish-waffle")
+#wandb.init(project="mlops-project", entity="fuzzy-fish-waffle")
 
 
 @hydra.main(config_name="training_conf.yaml", config_path="../../conf")
@@ -24,7 +23,7 @@ def main(cfg):
     model = Network(cfg.hyperparameters.num_classes)
 
     # Magic
-    # wandb.watch(model, log_freq=cfg.print_every)
+    #wandb.watch(model, log_freq=cfg.hyperparameters.print_every)
     trainloader, _, testloader = src.data.get_dataset.main(cfg)
 
     optimizer = optim.SGD(
@@ -63,7 +62,7 @@ def main(cfg):
             minibatch_loss_list.append(loss.item())
 
             if steps % print_every == 0:
-                # wandb.log({"loss": loss})
+                #wandb.log({"loss": loss})
 
                 # Model in inference mode, dropout is off
                 model.eval()
