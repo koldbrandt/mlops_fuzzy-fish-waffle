@@ -1,0 +1,24 @@
+{
+    "os": "Windows-10-10.0.19041-SP0",
+    "python": "3.7.11",
+    "heartbeatAt": "2022-01-20T08:31:31.107547",
+    "startedAt": "2022-01-20T08:31:29.269306",
+    "docker": null,
+    "gpu": "NVIDIA GeForce GTX 680",
+    "gpu_count": 1,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "c:/Users/mailt/OneDrive/Dokumenter/GitHub/mlops_fuzzy-fish-waffle/src/models/train_model.py",
+    "codePath": "src\\models\\train_model.py",
+    "git": {
+        "remote": "https://github.com/koldbrandt/mlops_fuzzy-fish-waffle.git",
+        "commit": "5bcb105ea2ca488c294c4bbcf0f4ff73424e6c37"
+    },
+    "email": "mailtilmb@gmail.com",
+    "root": "C:/Users/mailt/OneDrive/Dokumenter/GitHub/mlops_fuzzy-fish-waffle",
+    "host": "DESKTOP-18NCTH7",
+    "username": "mailt",
+    "executable": "C:\\Users\\mailt\\anaconda3\\envs\\mlops\\python.exe"
+}

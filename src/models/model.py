@@ -31,6 +31,8 @@ class Network(torch.nn.Module):
         )
 
     def forward(self, x):
+        if x.ndim == 3:
+            x= x.unsqueeze(0)
         # Image has to have shape 64 x 64
         if not x.shape[2:4] == torch.Size([64, 64]):
             raise ValueError("Expected each image to have shape 64 x 64")

@@ -1,0 +1,25 @@
+Training day and night
+Available Classes: ['Red Mullet', 'Red Sea Bream', 'Sea Bass', 'Black Sea Sprat', 'Gilt Head Bream', 'Striped Red Mullet', 'Trout', 'Horse Mackerel', 'Shrimp']
+{'Red Mullet': 0, 'Red Sea Bream': 1, 'Sea Bass': 2, 'Black Sea Sprat': 3, 'Gilt Head Bream': 4, 'Striped Red Mullet': 5, 'Trout': 6, 'Horse Mackerel': 7, 'Shrimp': 8}
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "c:/Users/mailt/OneDrive/Dokumenter/GitHub/mlops_fuzzy-fish-waffle/src/models/train_model.py", line 50, in main
+    for images, labels in trainloader:
+  File "C:\Users\mailt\anaconda3\envs\mlops\lib\site-packages\torch\utils\data\dataloader.py", line 359, in __iter__
+    return self._get_iterator()
+  File "C:\Users\mailt\anaconda3\envs\mlops\lib\site-packages\torch\utils\data\dataloader.py", line 305, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+  File "C:\Users\mailt\anaconda3\envs\mlops\lib\site-packages\torch\utils\data\dataloader.py", line 918, in __init__
+    w.start()
+  File "C:\Users\mailt\anaconda3\envs\mlops\lib\multiprocessing\process.py", line 112, in start
+    self._popen = self._Popen(self)
+  File "C:\Users\mailt\anaconda3\envs\mlops\lib\multiprocessing\context.py", line 223, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "C:\Users\mailt\anaconda3\envs\mlops\lib\multiprocessing\context.py", line 322, in _Popen
+    return Popen(process_obj)
+  File "C:\Users\mailt\anaconda3\envs\mlops\lib\multiprocessing\popen_spawn_win32.py", line 89, in __init__
+    reduction.dump(process_obj, to_child)
+  File "C:\Users\mailt\anaconda3\envs\mlops\lib\multiprocessing\reduction.py", line 60, in dump
+    ForkingPickler(file, protocol).dump(obj)
+BrokenPipeError: [Errno 32] Broken pipe
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

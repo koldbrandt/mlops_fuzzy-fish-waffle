@@ -1,0 +1,10 @@
+
+Training day and night
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "c:/Users/mailt/OneDrive/Dokumenter/GitHub/mlops_fuzzy-fish-waffle/src/models/train_model.py", line 26, in main
+    wandb.watch(model, log_freq=cfg.print_every)
+omegaconf.errors.ConfigAttributeError: Key 'print_every' is not in struct
+    full_key: print_every
+    object_type=dict
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
