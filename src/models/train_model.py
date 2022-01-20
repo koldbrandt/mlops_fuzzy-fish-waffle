@@ -97,6 +97,11 @@ def main(cfg):
     }
 
     date_time = datetime.now().strftime("%m%d%Y%H%M%S")
+    
+    script_model = torch.jit.script(model)
+    script_model.save("{cwd}/models/deployable_model_{date_time}.pth".format(
+            cwd=hydra.utils.get_original_cwd(), date_time=date_time))
+    
 
     torch.save(
         checkpoint,
@@ -115,6 +120,17 @@ def main(cfg):
                 os.path.join(cfg.cloud.path, f"model_{date_time}.pt"),
             ]
         )
+        subprocess.check_call(
+            [
+                "gsutil",
+                "cp",
+                os.path.join(
+                    hydra.utils.get_original_cwd(), f"models/deployable_model_{date_time}.pth"
+                ),
+                os.path.join(cfg.cloud.path_deploy, f"deployable_model_{date_time}.pt"),
+            ]
+        )
+
 
 
 if __name__ == "__main__":
