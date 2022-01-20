@@ -11,11 +11,9 @@ The model will have 3 convolutional layers with batchnormalization and relu will
 ### If folder "model_store" is empty RUN:
 torch-model-archiver --model-name my_fancy_model --version 1.0 --serialized-file models/deployable_model.pt --export-path model_store --extra-files torchserve/index_to_name.json --handler torchserve/myImagClass.py
 
-Start torch serve:
+### Otherwise just start torchserve
 1. torchserve --start --ncs --model-store model_store --models my_fancy_model=my_fancy_model.mar
-
-In another terminal: 
-2. Run: curl http://127.0.0.1:8080/predictions/my_fancy_model -T im00.png
+2. In another terminal run: curl http://127.0.0.1:8080/predictions/my_fancy_model -T im00.png
 
 
 ### Week 1
