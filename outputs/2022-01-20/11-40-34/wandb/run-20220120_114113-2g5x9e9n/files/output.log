@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████| 43/43 [00:02<00:00, 16.06it/s]
+                                                                                                                       score: 0.015703320503234863, p_val: 0.47200000286102295
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\src\models\train_model_lightning.py", line 81, in main
+    mapper = sklearn.manifold.Isomap(n_components=2)
+AttributeError: module 'sklearn' has no attribute 'manifold'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

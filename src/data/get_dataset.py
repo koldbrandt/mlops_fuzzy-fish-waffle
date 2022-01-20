@@ -20,7 +20,8 @@ def get_params(cfg: OmegaConf):
     input_filepath = Path(input_filepath)
     TRAIN_BATCHSiZE = cfg.hyperparameters.TRAIN_BATCHSIZE
     TEST_SIZE = cfg.hyperparameters.TEST_SIZE
-    return input_filepath, TRAIN_BATCHSiZE, TEST_SIZE
+    NUM_WORKERS = cfg.hyperparameters.NUM_WORKERS
+    return input_filepath, TRAIN_BATCHSiZE, TEST_SIZE, NUM_WORKERS
 
 
 def main(cfg: OmegaConf):
@@ -31,7 +32,7 @@ def main(cfg: OmegaConf):
     """
     # input_filepath = f"{cfg.hyperparameters.input_filepath}"
     # input_filepath = Path(input_filepath)
-    input_filepath, TRAIN_BATCHSIZE, TEST_SIZE = get_params(cfg)
+    input_filepath, TRAIN_BATCHSIZE, TEST_SIZE, NUM_WORKERS = get_params(cfg)
 
     # Check if path exists else raise error
     if not path.exists(input_filepath):
@@ -64,7 +65,7 @@ def main(cfg: OmegaConf):
         test,
         test_labels,
         TRAIN_BATCHSIZE,
-        1,
+        NUM_WORKERS,
         transform,
     )
 
@@ -98,7 +99,7 @@ def get_loaders(
     test_labels: List[int],
     batch_size: int,
     num_workers: int,
-    transform,
+    transform, 
 ):
     """
     Returns the Train, Validation and Test DataLoaders.

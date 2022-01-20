@@ -94,6 +94,7 @@ def main(cfg):
     plt.ylabel("loss")
     plt.savefig(hydra.utils.get_original_cwd() + "/reports/figures/training.png")
 
+    model.eval()
     # plt.show()
     checkpoint = {
         "state_dict": model.state_dict(),
@@ -114,7 +115,7 @@ def main(cfg):
                 "gsutil",
                 "cp",
                 os.path.join(
-                    hydra.utils.get_original_cwd(), f"models/checkpoint{date_time}.pth"
+                    hydra.utils.get_original_cwd(), f"models/checkpoint_{date_time}.pth"
                 ),
                 os.path.join(cfg.cloud.path, f"model_{date_time}.pt"),
             ]

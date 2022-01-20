@@ -1,0 +1,22 @@
+{
+    "os": "Windows-10-10.0.22000-SP0",
+    "python": "3.9.1",
+    "heartbeatAt": "2022-01-20T08:38:12.882852",
+    "startedAt": "2022-01-20T08:38:09.104706",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\Durita Kvilt\\OneDrive\\Menneske orienteret kunstig intelligens\\Machine learning operations\\mlops_fuzzy-fish-waffle\\src\\models\\train_model.py",
+    "codePath": "src\\models\\train_model.py",
+    "git": {
+        "remote": "https://github.com/koldbrandt/mlops_fuzzy-fish-waffle.git",
+        "commit": "241c5ac7b9a3394e95dde776d577cb471ff76982"
+    },
+    "email": "duritakviltjonsdottir@gmail.com",
+    "root": "C:/Users/Durita Kvilt/OneDrive/Menneske orienteret kunstig intelligens/Machine learning operations/mlops_fuzzy-fish-waffle",
+    "host": "LAPTOP-SA0HOGOT",
+    "username": "Durita Kvilt",
+    "executable": "C:\\Users\\Durita Kvilt\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+}

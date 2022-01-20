@@ -1,2 +1,4 @@
 /data
 /src.egg-info
+/src/models/__pycache__
+/src/data/__pycache__
