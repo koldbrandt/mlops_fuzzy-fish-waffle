@@ -7,6 +7,17 @@ The augmentation of the images will be to crop the images to focus on the center
 The model will have 3 convolutional layers with batchnormalization and relu will be used as activation function. The images will be flatten and fed into a dense hidden layer that continues into the classification layer. This will hopefully give an accuracy higher than 97%. We will start by creating this model using pytorch. If there is more time a model will be created using kornia. 
 
 
+# Instructions for torch serve
+### If folder "model_store" is empty RUN:
+torch-model-archiver --model-name my_fancy_model --version 1.0 --serialized-file models/deployable_model.pt --export-path model_store --extra-files torchserve/index_to_name.json --handler torchserve/myImagClass.py
+
+Start torch serve:
+1. torchserve --start --ncs --model-store model_store --models my_fancy_model=my_fancy_model.mar
+
+In another terminal: 
+2. Run: curl http://127.0.0.1:8080/predictions/my_fancy_model -T im00.png
+
+
 ### Week 1
 - [x] Create a git repository
 - [x] Make sure that all team members have write access to the github repository
