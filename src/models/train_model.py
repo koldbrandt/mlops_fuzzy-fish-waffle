@@ -7,6 +7,7 @@ import model as md
 import torch
 from model import Network
 from torch import nn, optim
+from torchvision import models
 
 import src.data.get_dataset
 
@@ -22,6 +23,8 @@ def main(cfg):
 
     print("Training day and night")
     model = Network(cfg.hyperparameters.num_classes)
+
+    
 
     # Magic
     # wandb.watch(model, log_freq=cfg.print_every)
@@ -55,6 +58,7 @@ def main(cfg):
 
             labels = labels.type(torch.LongTensor)
 
+            print(images.shape)
             output = model(images)
             loss = criterion(output, labels)
             loss.backward()
