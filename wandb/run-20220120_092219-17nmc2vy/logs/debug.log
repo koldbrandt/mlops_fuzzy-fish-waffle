@@ -1,0 +1,41 @@
+2022-01-20 09:22:19,040 INFO    MainThread:13472 [wandb_setup.py:_flush():71] setting env: {}
+2022-01-20 09:22:19,041 INFO    MainThread:13472 [wandb_setup.py:_flush():71] setting login settings: {}
+2022-01-20 09:22:19,041 INFO    MainThread:13472 [wandb_init.py:_log_setup():371] Logging user logs to C:\Users\Durita Kvilt\OneDrive\Menneske orienteret kunstig intelligens\Machine learning operations\mlops_fuzzy-fish-waffle\wandb\run-20220120_092219-17nmc2vy\logs\debug.log
+2022-01-20 09:22:19,042 INFO    MainThread:13472 [wandb_init.py:_log_setup():372] Logging internal logs to C:\Users\Durita Kvilt\OneDrive\Menneske orienteret kunstig intelligens\Machine learning operations\mlops_fuzzy-fish-waffle\wandb\run-20220120_092219-17nmc2vy\logs\debug-internal.log
+2022-01-20 09:22:19,042 INFO    MainThread:13472 [wandb_init.py:init():404] calling init triggers
+2022-01-20 09:22:19,042 INFO    MainThread:13472 [wandb_init.py:init():409] wandb.init called with sweep_config: {}
+config: {}
+2022-01-20 09:22:19,042 INFO    MainThread:13472 [wandb_init.py:init():460] starting backend
+2022-01-20 09:22:19,042 INFO    MainThread:13472 [backend.py:_multiprocessing_setup():99] multiprocessing start_methods=spawn, using: spawn
+2022-01-20 09:22:19,049 INFO    MainThread:13472 [backend.py:ensure_launched():216] starting backend process...
+2022-01-20 09:22:19,192 INFO    MainThread:13472 [backend.py:ensure_launched():221] started backend process with pid: 29360
+2022-01-20 09:22:19,194 INFO    MainThread:13472 [wandb_init.py:init():469] backend started and connected
+2022-01-20 09:22:19,198 INFO    MainThread:13472 [wandb_init.py:init():533] updated telemetry
+2022-01-20 09:22:19,283 INFO    MainThread:13472 [wandb_init.py:init():563] communicating current version
+2022-01-20 09:22:22,928 INFO    MainThread:13472 [wandb_init.py:init():568] got version response 
+2022-01-20 09:22:22,928 INFO    MainThread:13472 [wandb_init.py:init():578] communicating run to backend with 30 second timeout
+2022-01-20 09:22:52,924 INFO    MainThread:13472 [interface_shared.py:_communicate_run():313] couldn't get run from backend
+2022-01-20 09:22:52,924 ERROR   MainThread:13472 [wandb_init.py:init():583] backend process timed out
+2022-01-20 09:22:52,924 ERROR   MainThread:13472 [wandb_init.py:init():592] encountered error: Error communicating with wandb process
+try: wandb.init(settings=wandb.Settings(start_method='fork'))
+or:  wandb.init(settings=wandb.Settings(start_method='thread'))
+For more info see: https://docs.wandb.ai/library/init#init-start-error
+2022-01-20 09:22:52,986 ERROR   MainThread:13472 [wandb_init.py:init():958] error
+Traceback (most recent call last):
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\wandb\sdk\wandb_init.py", line 931, in init
+    run = wi.init()
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\wandb\sdk\wandb_init.py", line 596, in init
+    backend.cleanup()
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\wandb\sdk\backend\backend.py", line 245, in cleanup
+    self.interface.join()
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 458, in join
+    super().join()
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\wandb\sdk\interface\interface.py", line 599, in join
+    _ = self._communicate_shutdown()
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 455, in _communicate_shutdown
+    _ = self._communicate(record)
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 213, in _communicate
+    return self._communicate_async(rec, local=local).get(timeout=timeout)
+  File "C:\Users\Durita Kvilt\AppData\Local\Programs\Python\Python39\lib\site-packages\wandb\sdk\interface\interface_shared.py", line 218, in _communicate_async
+    raise Exception("The wandb backend process has shutdown")
+Exception: The wandb backend process has shutdown

@@ -104,6 +104,7 @@ def main(cfg):
             cwd=hydra.utils.get_original_cwd(), date_time=date_time
         ),
     )
+    
     if cfg.cloud.save:
         subprocess.check_call(
             [
