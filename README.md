@@ -47,7 +47,7 @@ torch-model-archiver --model-name my_fancy_model --version 1.0 --serialized-file
 - [X] Get your model training on `gcp`
 - [x] Play around with distributed data loading
 - [ ] (optional) Play around with distributed model training
-- [ ] Play around with quantization and compilation for you trained models
+- [x] Play around with quantization and compilation for you trained models
 
 ### Week 3
 - [x] Deployed your model locally using TorchServe

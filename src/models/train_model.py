@@ -99,11 +99,12 @@ def main(cfg):
     plt.ylabel("loss")
     plt.savefig(hydra.utils.get_original_cwd() + "/reports/figures/training.png")
 
-    # model_int8 = torch.quantization.convert(model)
+    # Quantization
+    model_int8 = torch.quantization.convert(model)
 
     # plt.show()
     checkpoint = {
-        "state_dict": model.state_dict(),
+        "state_dict": model_int8.state_dict(),
     }
 
     date_time = datetime.now().strftime("%m%d%Y%H%M%S")
