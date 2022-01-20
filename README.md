@@ -9,7 +9,7 @@ The model will have 3 convolutional layers with batchnormalization and relu will
 
 # Instructions for torch serve
 ### If folder "model_store" is empty RUN:
-torch-model-archiver --model-name my_fancy_model --version 1.0 --serialized-file models/deployable_model.pt --export-path model_store --extra-files torchserve/index_to_name.json --handler torchserve/myImagClass.py
+torch-model-archiver --model-name my_fancy_model --version 1.0 --serialized-file models/deployable_model.pt --export-path model_store --extra-files torchserve/index_to_name.json --handler torchserve/myImageClass.py
 
 ### Otherwise just start torchserve
 1. torchserve --start --ncs --model-store model_store --models my_fancy_model=my_fancy_model.mar
