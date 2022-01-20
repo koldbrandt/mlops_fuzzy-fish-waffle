@@ -6,10 +6,11 @@ hyperparameters:
   num_classes : 9
   TRAIN_BATCHSIZE: 64
   TEST_SIZE: 0.2
+  NUM_WORKERS : 4
 
 paths: 
   input_filepath: ${hydra:runtime.cwd}/data/processed/
 
 cloud:
-  save: True
+  save: False
   path: gs://bucket-for-fishes/models
