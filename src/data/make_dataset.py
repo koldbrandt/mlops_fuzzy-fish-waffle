@@ -84,6 +84,7 @@ def main(cfg: OmegaConf):
         kornia.augmentation.RandomPerspective(0.1, p=0.8),
         kornia.augmentation.RandomHorizontalFlip(p=0.5),
     )
+    
 
     for label in uniqLabels:
         class_name = list(int_classes.keys())[list(int_classes.values()).index(label)]

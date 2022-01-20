@@ -41,7 +41,7 @@ The model will have 3 convolutional layers with batchnormalization and relu will
 - [ ] Play around with quantization and compilation for you trained models
 
 ### Week 3
-- [ ] Deployed your model locally using TorchServe
+- [x] Deployed your model locally using TorchServe
 - [x] Checked how robust your model is towards data drifting
 - [ ] Deployed your model using `gcp`
 - [ ] Monitored the system of your deployed model

@@ -1,0 +1,10 @@
+2022-01-20T15:22:04,225 - HandlerTime.Milliseconds:250.67|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:e5fd732c-291e-4541-82e6-504cffb7aafe,timestamp:1642688524
+2022-01-20T15:22:04,242 - PredictionTime.Milliseconds:250.67|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:e5fd732c-291e-4541-82e6-504cffb7aafe,timestamp:1642688524
+2022-01-20T15:23:45,336 - HandlerTime.Milliseconds:407.94|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:df88e82a-e989-419e-b4ea-0c8fc388c453,timestamp:1642688625
+2022-01-20T15:23:45,341 - PredictionTime.Milliseconds:408.95|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:df88e82a-e989-419e-b4ea-0c8fc388c453,timestamp:1642688625
+2022-01-20T15:30:24,804 - HandlerTime.Milliseconds:284.25|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:1140e545-4d01-4ba7-91f3-94fb8881a1b8,timestamp:1642689024
+2022-01-20T15:30:24,806 - PredictionTime.Milliseconds:284.25|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:1140e545-4d01-4ba7-91f3-94fb8881a1b8,timestamp:1642689024
+2022-01-20T15:30:33,123 - HandlerTime.Milliseconds:217.31|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:1fd2bb63-e3d3-4ed1-ab35-aa874fa313c2,timestamp:1642689033
+2022-01-20T15:30:33,125 - PredictionTime.Milliseconds:217.31|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:1fd2bb63-e3d3-4ed1-ab35-aa874fa313c2,timestamp:1642689033
+2022-01-20T15:31:26,846 - HandlerTime.Milliseconds:189.91|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:34a47e77-64af-4920-936d-3c0036975571,timestamp:1642689086
+2022-01-20T15:31:26,847 - PredictionTime.Milliseconds:189.91|#ModelName:my_fancy_model,Level:Model|#hostname:LAPTOP-SA0HOGOT,requestID:34a47e77-64af-4920-936d-3c0036975571,timestamp:1642689086

@@ -113,9 +113,9 @@ def get_loaders(
         train_ds, batch_size=batch_size, num_workers=num_workers, shuffle=True
     )
     val_loader = DataLoader(
-        val_ds, batch_size=batch_size, num_workers=num_workers, shuffle=False
+        val_ds, batch_size=1, num_workers=num_workers, shuffle=False
     )
     test_loader = DataLoader(
-        test_ds, batch_size=batch_size, num_workers=num_workers, shuffle=False
+        test_ds, batch_size=1, num_workers=num_workers, shuffle=False
     )
     return train_loader, val_loader, test_loader

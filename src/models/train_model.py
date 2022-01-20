@@ -13,7 +13,8 @@ import src.data.get_dataset
 
 from datetime import datetime
 import wandb
-#wandb.init(project="mlops-project", entity="fuzzy-fish-waffle")
+
+# wandb.init(project="mlops-project", entity="fuzzy-fish-waffle")
 
 
 @hydra.main(config_name="training_conf.yaml", config_path="../../conf")
@@ -23,10 +24,9 @@ def main(cfg):
     print("Training day and night")
     model = Network(cfg.hyperparameters.num_classes)
 
-    
 
     # Magic
-    #wandb.watch(model, log_freq=cfg.hyperparameters.print_every)
+    # wandb.watch(model, log_freq=cfg.print_every)
     trainloader, _, testloader = src.data.get_dataset.main(cfg)
 
     optimizer = optim.SGD(
@@ -56,8 +56,11 @@ def main(cfg):
             optimizer.zero_grad()
 
             labels = labels.type(torch.LongTensor)
-
-            print(images.shape)
+    
+            # print(images.shape)
+            # images = images[1,:,:,:]
+            # images = images.squeeze(0)
+            # print(images.shape)
             output = model(images)
             loss = criterion(output, labels)
             loss.backward()
@@ -66,7 +69,7 @@ def main(cfg):
             minibatch_loss_list.append(loss.item())
 
             if steps % print_every == 0:
-                #wandb.log({"loss": loss})
+                # wandb.log({"loss": loss})
 
                 # Model in inference mode, dropout is off
                 model.eval()
@@ -89,12 +92,15 @@ def main(cfg):
                 model.train()
         scheduler.step(minibatch_loss_list[-1])
 
+    model.eval()
+
     plt.plot(timestamp, losses)
     plt.xlabel("step")
     plt.ylabel("loss")
     plt.savefig(hydra.utils.get_original_cwd() + "/reports/figures/training.png")
 
-    model.eval()
+    # model_int8 = torch.quantization.convert(model)
+
     # plt.show()
     checkpoint = {
         "state_dict": model.state_dict(),
@@ -108,6 +114,9 @@ def main(cfg):
             cwd=hydra.utils.get_original_cwd(), date_time=date_time
         ),
     )
+
+    script_model = torch.jit.script(model)
+    script_model.save(hydra.utils.get_original_cwd() + "/models/deployable_model.pt")
     
     if cfg.cloud.save:
         subprocess.check_call(
