@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████| 43/43 [00:02<00:00, 16.16it/s]
+                                                                                                                       score: 0.017691493034362793, p_val: 0.24799999594688416
+saving the plot
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\src\models\train_model_lightning.py", line 94, in main
+    features_embedded = mapper.transform(features)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\sklearn\manifold\_isomap.py", line 351, in transform
+    distances, indices = self.nbrs_.kneighbors(X, return_distance=True)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\sklearn\neighbors\_base.py", line 717, in kneighbors
+    X = self._validate_data(X, accept_sparse="csr", reset=False)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\sklearn\base.py", line 566, in _validate_data
+    X = check_array(X, **check_params)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\sklearn\utils\validation.py", line 746, in check_array
+    array = np.asarray(array, order=order, dtype=dtype)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\torch\_tensor.py", line 678, in __array__
+    return self.numpy()
+RuntimeError: Can't call numpy() on Tensor that requires grad. Use tensor.detach().numpy() instead.
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████| 43/43 [00:02<00:00, 16.00it/s]
+                                                                                                                       score: 0.01432037353515625, p_val: 0.6349999904632568
+saving the plot
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "C:\Users\bgran\OneDrive - Danmarks Tekniske Universitet\studies\Machine Learning Operations\mlops_fuzzy-fish-waffle\src\models\train_model_lightning.py", line 88, in main
+    pyplot.savefig("reports\figures\drift_detection.png")
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\matplotlib\pyplot.py", line 958, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\matplotlib\figure.py", line 3019, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\matplotlib\backend_bases.py", line 2319, in print_figure
+    result = print_method(
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\matplotlib\backend_bases.py", line 1648, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\matplotlib\_api\deprecation.py", line 412, in wrapper
+    return func(*inner_args, **inner_kwargs)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\matplotlib\backends\backend_agg.py", line 541, in print_png
+    mpl.image.imsave(
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\matplotlib\image.py", line 1675, in imsave
+    image.save(fname, **pil_kwargs)
+  File "C:\Users\bgran\anaconda3\envs\my_environment\lib\site-packages\PIL\Image.py", line 2237, in save
+    fp = builtins.open(filename, "w+b")
+OSError: [Errno 22] Invalid argument: 'reports\x0cigures\\drift_detection.png'
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
