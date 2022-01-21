@@ -34,9 +34,11 @@ def main(cfg):
 
     date_time = datetime.now().strftime("%m%d%Y%H%M%S")
 
-    trainer.save_checkpoint("{cwd}/models/checkpoint_{date_time}.pth".format(
+    trainer.save_checkpoint(
+        "{cwd}/models/checkpoint_{date_time}.pth".format(
             cwd=hydra.utils.get_original_cwd(), date_time=date_time
-        ))
+        )
+    )
 
     if cfg.cloud.save:
         subprocess.check_call(
@@ -59,9 +61,9 @@ def main(cfg):
     inputs, _ = next(iter(trainloader))
     inputs_ood = corruption_function(inputs)
 
-    N = 6
+    # N = 6
     model.eval()
-    inps = torch.cat([inputs[:N], inputs_ood[:N]])
+    # inps = torch.cat([inputs[:N], inputs_ood[:N]])
     model.cpu()
     # predictions = model.predict(inps).max(1).indices
 
@@ -77,13 +79,13 @@ def main(cfg):
     p_val = drift_detector.compute_p_value(features)
     print(f"score: {score}, p_val: {p_val}")
 
-    N_base = drift_detector.base_outputs.size(0)
+    # N_base = drift_detector.base_outputs.size(0)
     mapper = sklearn.manifold.Isomap(n_components=2)
     base_embedded = mapper.fit_transform(drift_detector.base_outputs)
     features_embedded = mapper.transform(features.detach().numpy())
-    pyplot.scatter(base_embedded[:, 0], base_embedded[:, 1], s=2, c='r')
+    pyplot.scatter(base_embedded[:, 0], base_embedded[:, 1], s=2, c="r")
     pyplot.scatter(features_embedded[:, 0], features_embedded[:, 1], s=4)
-    pyplot.title(f'score {score:.2f} p-value {p_val:.2f}')
+    pyplot.title(f"score {score:.2f} p-value {p_val:.2f}")
     print("saving the plot")
     pyplot.savefig("drift_detection.png")
 
@@ -93,9 +95,9 @@ def main(cfg):
     print(f"score_ood: {score}, p_val_ood: {p_val}")
 
     features_embedded = mapper.transform(features.detach().numpy())
-    pyplot.scatter(base_embedded[:, 0], base_embedded[:, 1], s=2, c='r')
+    pyplot.scatter(base_embedded[:, 0], base_embedded[:, 1], s=2, c="r")
     pyplot.scatter(features_embedded[:, 0], features_embedded[:, 1], s=4)
-    pyplot.title(f'score {score:.2f} p-value {p_val:.2f}')
+    pyplot.title(f"score {score:.2f} p-value {p_val:.2f}")
     pyplot.savefig("drift_detection_ood.png")
 
 

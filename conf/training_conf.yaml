@@ -1,5 +1,5 @@
 hyperparameters: 
-  epochs : 10
+  epochs : 1
   print_every : 40
   lr : 0.01
   momentum : 0.9
@@ -12,6 +12,6 @@ paths:
   input_filepath: ${hydra:runtime.cwd}/data/processed/
 
 cloud:
-  save: True
+  save: False
   path: gs://bucket-for-fishes/models
   path_deploy: gs://bucket-for-fishes/deployable_models

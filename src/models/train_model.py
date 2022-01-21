@@ -7,12 +7,11 @@ import model as md
 import torch
 from model import Network
 from torch import nn, optim
-from torchvision import models
 
 import src.data.get_dataset
 
 from datetime import datetime
-import wandb
+
 
 # wandb.init(project="mlops-project", entity="fuzzy-fish-waffle")
 
@@ -23,8 +22,6 @@ def main(cfg):
 
     print("Training day and night")
     model = Network(cfg.hyperparameters.num_classes)
-
-
     # Magic
     # wandb.watch(model, log_freq=cfg.print_every)
     trainloader, _, testloader = src.data.get_dataset.main(cfg)
@@ -56,11 +53,6 @@ def main(cfg):
             optimizer.zero_grad()
 
             labels = labels.type(torch.LongTensor)
-    
-            # print(images.shape)
-            # images = images[1,:,:,:]
-            # images = images.squeeze(0)
-            # print(images.shape)
             output = model(images)
             loss = criterion(output, labels)
             loss.backward()
@@ -100,19 +92,21 @@ def main(cfg):
     plt.savefig(hydra.utils.get_original_cwd() + "/reports/figures/training.png")
 
     # Quantization
-    model_int8 = torch.quantization.convert(model)
+    # model_int8 = torch.quantization.convert(model)
 
     # plt.show()
     checkpoint = {
-        "state_dict": model_int8.state_dict(),
+        "state_dict": model.state_dict(),
     }
 
     date_time = datetime.now().strftime("%m%d%Y%H%M%S")
-    
+
     script_model = torch.jit.script(model)
-    script_model.save("{cwd}/models/deployable_model_{date_time}.pth".format(
-            cwd=hydra.utils.get_original_cwd(), date_time=date_time))
-    
+    script_model.save(
+        "{cwd}/models/deployable_model_{date_time}.pth".format(
+            cwd=hydra.utils.get_original_cwd(), date_time=date_time
+        )
+    )
 
     torch.save(
         checkpoint,
@@ -121,9 +115,6 @@ def main(cfg):
         ),
     )
 
-    script_model = torch.jit.script(model)
-    script_model.save(hydra.utils.get_original_cwd() + "/models/deployable_model.pt")
-    
     if cfg.cloud.save:
         subprocess.check_call(
             [
@@ -140,12 +131,12 @@ def main(cfg):
                 "gsutil",
                 "cp",
                 os.path.join(
-                    hydra.utils.get_original_cwd(), f"models/deployable_model_{date_time}.pth"
+                    hydra.utils.get_original_cwd(),
+                    f"models/deployable_model_{date_time}.pth",
                 ),
                 os.path.join(cfg.cloud.path_deploy, f"deployable_model_{date_time}.pt"),
             ]
         )
-
 
 
 if __name__ == "__main__":

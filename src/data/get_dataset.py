@@ -99,7 +99,7 @@ def get_loaders(
     test_labels: List[int],
     batch_size: int,
     num_workers: int,
-    transform, 
+    transform,
 ):
     """
     Returns the Train, Validation and Test DataLoaders.

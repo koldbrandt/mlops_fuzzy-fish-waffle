@@ -1,4 +1,5 @@
 [flake8]
-exclude = venv, build, docs
-ignore = W503, E304, E302, E123, E301, W292, W291, W605 # W503: Line break occurred before binary operator
+exclude = venv, build, docs, torchserve, vision_handler.py, base_handler.py, myImageClass.py, utils
+
+ignore = W503, E304, E302, E123, E301, W292, W291, W605, E225, W293, E305 # W503: Line break occurred before binary operator
 max-line-length = 98

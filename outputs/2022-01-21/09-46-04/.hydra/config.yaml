@@ -1,0 +1,15 @@
+hyperparameters:
+  epochs: 1
+  print_every: 40
+  lr: 0.01
+  momentum: 0.9
+  num_classes: 9
+  TRAIN_BATCHSIZE: 64
+  TEST_SIZE: 0.2
+  NUM_WORKERS: 4
+paths:
+  input_filepath: ${hydra:runtime.cwd}/data/processed/
+cloud:
+  save: false
+  path: gs://bucket-for-fishes/models
+  path_deploy: gs://bucket-for-fishes/deployable_models
